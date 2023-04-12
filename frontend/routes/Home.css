@@ -1,0 +1,28 @@
+@import url(https://allfont.net/allfont.css?fonts=agency-fb);
+
+.slide-bg {
+    background-size: cover;
+    background-position: center;
+    animation: slide-bg-animation 5s ease infinite;
+  }
+  
+  @keyframes slide-bg-animation {
+    0% {
+      filter: brightness(100%);
+    }
+    50% {
+      filter: brightness(120%);
+    }
+    100% {
+      filter: brightness(100%);
+    }
+  }
+  
+  .paper-grow {
+    transition: transform 0.3s;
+  }
+  
+  .paper-grow:hover {
+    transform: scale(1.05);
+  }
+  
