@@ -7,14 +7,14 @@ const Chat = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setHistory(curHistory => [...curHistory, message]);
+    setHistory((curHistory) => [...curHistory, message]);
     axios
       .post("/api/message", {
         message: message,
       })
       .then(
         (response) => {
-          setHistory(curHistory => [...curHistory, response.data]);
+          setHistory((curHistory) => [...curHistory, response.data]);
           console.log("Message sent success:", response.data);
         },
         (error) => {
@@ -32,8 +32,10 @@ const Chat = () => {
 
   return (
     <>
-      {messageHistory.map((msg) => (
-        <div>{msg}</div>
+      {messageHistory.map((message, index) => (
+        <div key={index}>
+          <p>{message}</p>
+        </div>
       ))}
       <div>
         <form onSubmit={handleSubmit}>
