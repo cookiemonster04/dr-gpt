@@ -7,13 +7,14 @@ const Chat = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setHistory(messageHistory.concat(message));
+    setHistory(curHistory => [...curHistory, message]);
     axios
-    .post("/api/message", {
-      message: message,
-    })
-    .then(
+      .post("/api/message", {
+        message: message,
+      })
+      .then(
         (response) => {
+          setHistory(curHistory => [...curHistory, response.data]);
           console.log("Message sent success:", response.data);
         },
         (error) => {
@@ -24,25 +25,28 @@ const Chat = () => {
     console.log("==message sent==");
     setMessage("");
 
-    for (let i = 0; i < messageHistory.length; i++)
-    {
-        console.log(messageHistory[i]);
+    for (let i = 0; i < messageHistory.length; i++) {
+      console.log(messageHistory[i]);
     }
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={message}
-          onChange={(event) => setMessage(event.target.value)}
-        />
-        <button type="submit">submit</button>
-      </form>
-    </div>
+    <>
+      {messageHistory.map((msg) => (
+        <div>{msg}</div>
+      ))}
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={message}
+            onChange={(event) => setMessage(event.target.value)}
+          />
+          <button type="submit">submit</button>
+        </form>
+      </div>
+    </>
   );
 };
 
 export default Chat;
-

@@ -6,7 +6,6 @@ import {
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import "./Profile.css";
-import Chat from "./chat";
 
 const Profile = ({ userId, user, themeMode }) => {
   const [username, setUsername] = useState("");

@@ -43,7 +43,7 @@ const sendMessage = catchWrap(
       }
     );
     console.log(response);
-    res.status(200).json(response.choices[0].message.content);
+    res.status(200).json(response.data.choices[0].message.content);
   }
   //   500,
   //   "Internal server error"

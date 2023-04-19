@@ -7,6 +7,7 @@ import Signup from "./routes/Signup";
 import { ProfilePage, ProfileHome } from "./routes/ProfilePage";
 import Login from "./routes/Login";
 import Logout from "./routes/Logout";
+import { ChatPage } from "./routes/ChatPage";
 import "./App.css";
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
               element={<Login user={user} setUser={setUser} />}
             />
             <Route path="/logout" element={<Logout setUser={setUser} />} />
+            <Route path="/chat" element={<ChatPage user={user} themeMode={theme} />} />
           </Routes>
         </div>
       ) : (
