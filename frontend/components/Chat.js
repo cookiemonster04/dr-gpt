@@ -40,6 +40,13 @@ const Chat = () => {
         />
         <button type="submit">submit</button>
       </form>
+      {
+        messageHistory.map((message, index) => (
+            <div key={index}>
+              <p>{message}</p>
+            </div>
+          ))
+      }
     </div>
   );
 };
