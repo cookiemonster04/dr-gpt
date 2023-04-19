@@ -13,7 +13,7 @@ export default function Navbar({
     <nav className={getTheme === "light" ? "nav navlight" : "nav navdark"}>
       <NavLink to="/" className="site-title">
         <img src={logo} style={{ marginRight: "10px", width: "60px", height: "60px"}}/>
-        Company
+        Dr. GPT
       </NavLink>
 
       <ul>

@@ -65,7 +65,7 @@
     margin-left: auto;
     padding: 15px 30px;
     border: none;
-    background-color: purple;
+    background-color: #61B3FF;
     color: white;
     border-radius: 6px;
     cursor: pointer;
@@ -74,7 +74,7 @@
 }
 
 .submitBtn:hover {
-    background-color: #9867C5;
+    background-color: #abd6f4;
     transform: translateY(-2px);
 }
 
