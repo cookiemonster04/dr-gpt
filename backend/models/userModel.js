@@ -66,8 +66,9 @@ const userSchema = new Schema({
       message: (props) => messageGenerator(passwordCheck(props.value)),
     },
   },
+  chats: [String],
   first: String,
-  last: String
+  last: String,
 });
 
 userSchema.methods.generateJWT = function () {

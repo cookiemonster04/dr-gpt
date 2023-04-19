@@ -6,6 +6,7 @@ import connectDB from "./connectDb.js";
 import { getUser, setUser } from "./handlers/userHandler.js";
 import { auth, login, logout } from "./handlers/authHandler.js";
 import { handleError, errorConvert } from "./middleware/errorHandler.js";
+import { sendMessage } from "./handlers/chatHandler.js";
 
 connectDB();
 dotenv.config({ path: "backend/config.env" });
@@ -23,6 +24,8 @@ app.get("/api/user", auth, getUser);
 
 app.post("/api/login", login);
 app.get("/api/logout", logout);
+
+app.post("/api/message", sendMessage);
 
 app.get("*", (req, res, next) => {
   console.log("Request received");
