@@ -6,6 +6,7 @@ import {
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import "./Profile.css";
+import { Link } from "react-router-dom";
 
 const Profile = ({ userId, user, themeMode }) => {
   const [username, setUsername] = useState("");
@@ -41,8 +42,10 @@ const Profile = ({ userId, user, themeMode }) => {
             >
               {" "}
               Welcome back, {username}
-              <Chat />
             </Typography>
+            <Link to="/chat">
+              <button>Go to Chat</button>
+            </Link>
           </Box>
         </div>
       </ThemeProvider>
