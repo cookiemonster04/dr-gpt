@@ -267,7 +267,7 @@ const Profile = ({ userId, user, themeMode }) => {
                 <button type="submit">submit</button>
               </div>
               
-              <Link to="/chat">
+              <Link to={{ pathname: "/chat", state: { dataArray: dataArray } }}>
                 <button>Go to Chat</button>
               </Link>
             </form>
