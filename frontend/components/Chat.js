@@ -1,32 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, cloneElement } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { dataArray } from './Profile';
-import {
-  Typography,
-  Box,
-} from "@mui/material";
+import { dataArray } from "./Profile";
+import { Typography, Box, Button } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Chat = () => {
   const [message, setMessage] = useState("");
   const [messageHistory, setHistory] = useState([]);
-  const [symptom1, setSymptom1] = useState("");
-  const [symptom2, setSymptom2] = useState("");
-  const [symptom3, setSymptom3] = useState("");
-  const [duration1, setDuration1] = useState("");
-  const [duration2, setDuration2] = useState("");
-  const [duration3, setDuration3] = useState("");
-  const [severity1, setSeverity1] = useState(0);
-  const [severity2, setSeverity2] = useState(0);
-  const [severity3, setSeverity3] = useState(0);
-  const [frequency1, setFrequency1] = useState("");
-  const [frequency2, setFrequency2] = useState("");
-  const [frequency3, setFrequency3] = useState("");
-  const [description1, setDescription1] = useState("");
-  const [description2, setDescription2] = useState("");
-  const [description3, setDescription3] = useState("");
-  
+  const [symptoms, setSymptoms] = useState([]);
 
+  const FormItem = (title, name, comp, symptom, setSymptom) => (
+    <div
+      className="survey"
+      onChange={(event) =>
+        setSymptom({ ...symptom, [name]: event.target.value })
+      }
+    >
+      <label className="survey-q">{title} &nbsp; </label>
+      {comp}
+    </div>
+  );
 
   /*const location = useLocation();
   const dataArray = location.state?.dataArray;*/
@@ -36,8 +31,9 @@ const Chat = () => {
     setHistory((curHistory) => [...curHistory, message]);
     axios
       .post("/api/message", {
-        message: ("I'm going to give you a set of symptoms and I want you to attempt to give me a diagnosis with the percentage of confidence, You should aim for the highest confidence so when needed, ask followup questions to gather more information. Then I'm going to tell you if you were right or wrong. "
-        /* + "Before giving you the symptoms, here is the medical history of the patient: " 
+        message:
+          "I'm going to give you a set of symptoms and I want you to attempt to give me a diagnosis with the percentage of confidence, You should aim for the highest confidence so when needed, ask followup questions to gather more information. Then I'm going to tell you if you were right or wrong. " +
+          /* + "Before giving you the symptoms, here is the medical history of the patient: " 
         + "DOB: " + dataArray[0] 
         + ", Height: " + dataArray[1] 
         + "cm, Weight: " + dataArray[2] 
@@ -55,11 +51,37 @@ const Chat = () => {
         + ", Alcohol consumption: " + dataArray[14]
         + ", Stress level (1-5): " + dataArray[15]
         + ", Sleep: " + dataArray[16] + "hours/night." */
-        
-        + "symptom 1: " + symptom1 + ", duration: " + duration1 + ", severity (1-10): " + severity1 + ", frequency: " + frequency1 + ", description" + description1 
-        + ", sympton 2: " + symptom2 + ", duration: " + duration2 + ", severity (1-10): " + severity2 + ", frequency: " + frequency2 + ", description" + description2 
-        + ", sympton 3: " + symptom3 + ", duration: " + duration3 + ", severity (1-10): " + severity3 + ", frequency: " + frequency3 + ", description" + description3
-        )
+
+          "symptom 1: " +
+          symptom1 +
+          ", duration: " +
+          duration1 +
+          ", severity (1-10): " +
+          severity1 +
+          ", frequency: " +
+          frequency1 +
+          ", description" +
+          description1 +
+          ", symptom 2: " +
+          symptom2 +
+          ", duration: " +
+          duration2 +
+          ", severity (1-10): " +
+          severity2 +
+          ", frequency: " +
+          frequency2 +
+          ", description" +
+          description2 +
+          ", symptom 3: " +
+          symptom3 +
+          ", duration: " +
+          duration3 +
+          ", severity (1-10): " +
+          severity3 +
+          ", frequency: " +
+          frequency3 +
+          ", description" +
+          description3,
       })
       .then(
         (response) => {
@@ -84,7 +106,7 @@ const Chat = () => {
     setHistory((curHistory) => [...curHistory, message]);
     axios
       .post("/api/message", {
-        message: (symptom1 + ", " + symptom2 + ", " + symptom3 + ", "  + message)
+        message: symptom1 + ", " + symptom2 + ", " + symptom3 + ", " + message,
       })
       .then(
         (response) => {
@@ -103,130 +125,109 @@ const Chat = () => {
       console.log(messageHistory[i]);
     }
   };
-
+  const symptom_attrs = [
+    ["Title", "title", <input type="text"></input>],
+    ["Duration", "time", <input type="text"></input>],
+    ["Severity (1-10)", "sev", <input type="number"></input>],
+    ["Frequency", "freq", <input type="text"></input>],
+    ["Description", "desc", <textarea></textarea>],
+  ];
   return (
-    <>
-    <form onSubmit={handleData}>
-
-    <Typography
-      variant="h5"
-      marginBottom={2}
-      className="subsection-header"
-      align="left"
-    >
-      {" "}
-      Symptom #1
-    </Typography>
-
-      <div className="survey" onChange={(event) => setSymptom1(event.target.value)}>
-        <label className="survey-q">Title &nbsp; </label>
-        <input type="text"></input>
-      </div>
-      <div className="survey" onChange={(event) => setDuration1(event.target.value)}>
-        <label className="survey-q">Duration &nbsp; </label>
-        <input type="text"></input>
-      </div>
-      <div className="survey" onChange={(event) => setSeverity1(event.target.value)}>
-        <label className="survey-q">Severity (1-10) &nbsp; </label>
-        <input type="number"></input>
-      </div>
-      <div className="survey" onChange={(event) => setFrequency1(event.target.value)}>
-        <label className="survey-q">Frequency &nbsp; </label>
-        <input type="text"></input>
-      </div>
-      <div className="survey" onChange={(event) => setDescription1(event.target.value)}>
-        <label className="survey-q">Description &nbsp; </label>
-        <textarea></textarea>
-      </div>
-
-    <Typography
-      variant="h5"
-      marginBottom={2}
-      className="subsection-header"
-      align="left"
-    >
-      {" "}
-      Symptom #2
-    </Typography>
-
-      <div className="survey" onChange={(event) => setSymptom2(event.target.value)}>
-        <label className="survey-q">Title &nbsp; </label>
-        <input type="text"></input>
-      </div>
-      <div className="survey" onChange={(event) => setDuration2(event.target.value)}>
-        <label className="survey-q">Duration &nbsp; </label>
-        <input type="text"></input>
-      </div>
-      <div className="survey" onChange={(event) => setSeverity2(event.target.value)}>
-        <label className="survey-q">Severity (1-10) &nbsp; </label>
-        <input type="number"></input>
-      </div>
-      <div className="survey" onChange={(event) => setFrequency2(event.target.value)}>
-        <label className="survey-q">Frequency &nbsp; </label>
-        <input type="text"></input>
-      </div>
-      <div className="survey" onChange={(event) => setDescription2(event.target.value)}>
-        <label className="survey-q">Description &nbsp; </label>
-        <textarea></textarea>
-      </div>
-
-    <Typography
-      variant="h5"
-      marginBottom={2}
-      className="subsection-header"
-      align="left"
-    >
-      {" "}
-      Symptom #3
-    </Typography>
-
-      <div className="survey" onChange={(event) => setSymptom3(event.target.value)}>
-        <label className="survey-q">Title &nbsp; </label>
-        <input type="text"></input>
-      </div>
-      <div className="survey" onChange={(event) => setDuration3(event.target.value)}>
-        <label className="survey-q">Duration &nbsp; </label>
-        <input type="text"></input>
-      </div>
-      <div className="survey" onChange={(event) => setSeverity3(event.target.value)}>
-        <label className="survey-q">Severity (1-10) &nbsp; </label>
-        <input type="number"></input>
-      </div>
-      <div className="survey" onChange={(event) => setFrequency3(event.target.value)}>
-        <label className="survey-q">Frequency &nbsp; </label>
-        <input type="text"></input>
-      </div>
-      <div className="survey" onChange={(event) => setDescription3(event.target.value)}>
-        <label className="survey-q">Description &nbsp; </label>
-        <textarea></textarea>
-      </div>
-      
-      <div>
-        <button type="submit">submit</button>
-      </div>
-      <br></br>
-    </form>
-      {messageHistory.map((message, index) => (
-        <div key={index}>
-          <p>{message}</p>
-        </div>
-      ))}
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <input
-              type="text"
-              placeholder="message of details"
-              value={message}
-              onChange={(event) => setMessage(event.target.value)}
-            />
-          
-
-          <button type="submit">Send Chat</button>
-          </div>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ marginTop: "15px" }}>
+        <form onSubmit={handleData} style={{ marginBottom: "15px" }}>
+          {symptoms.map((symptom, idx) => {
+            return (
+              <>
+                <div
+                  style={{
+                    display: "flex",
+                    maxWidth: "500px",
+                    justifyContent: "space-between",
+                    marginBottom: "15px",
+                  }}
+                >
+                  <Typography
+                    variant="h5"
+                    marginBottom={2}
+                    className="subsection-header"
+                    align="left"
+                    key={`symptom_${idx}`}
+                  >
+                    {" "}
+                    Symptom {idx + 1}:
+                  </Typography>
+                  <FontAwesomeIcon
+                    icon={faXmark}
+                    style={{ color: "#dc2626", cursor: "pointer" }}
+                    size="lg"
+                    onClick={() =>
+                      setSymptoms([
+                        ...symptoms.slice(0, idx),
+                        ...symptoms.slice(idx + 1),
+                      ])
+                    }
+                  >
+                    {" "}
+                  </FontAwesomeIcon>
+                </div>
+                {symptom_attrs.map((item, idx) => {
+                  return FormItem(
+                    item[0],
+                    item[1],
+                    React.cloneElement(item[2], { value: symptom[item] }),
+                    symptoms[idx],
+                    (symptom) =>
+                      setSymptoms([
+                        ...symptoms.slice(0, idx),
+                        symptom,
+                        symptoms.slice(idx + 1),
+                      ])
+                  );
+                })}
+              </>
+            );
+          })}
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() =>
+              setSymptoms([
+                ...symptoms,
+                symptom_attrs.reduce((obj, item) => {
+                  return {
+                    ...obj,
+                    [item[0]]: "",
+                  };
+                }, {}),
+              ])
+            }
+          >
+            + symptom
+          </Button>
         </form>
+        {messageHistory.map((message, index) => (
+          <div key={index}>
+            <p>{message}</p>
+          </div>
+        ))}
+        <div>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <input
+                type="text"
+                placeholder="message of details"
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+                style={{ marginBottom: "10px" }}
+              />
+
+              <button type="submit">Send Chat</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
