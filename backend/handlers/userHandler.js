@@ -30,5 +30,25 @@ const setUser = catchWrap(async (req, res, next) => {
     user: newUser,
   });
 });
+const editUser = catchWrap(
+  async (req, res, next) => {
+    if (!req.user) {
+      throw new Error();
+    }
+    User.findOneAndUpdate(
+      { _id: req.user._id },
+      req.body,
+      { new: true },
+      (err, user) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+      }
+    );
+  },
+  401,
+  "Login to access profile"
+);
 
-export { getUser, setUser };
+export { getUser, setUser, editUser };

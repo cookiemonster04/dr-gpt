@@ -69,6 +69,23 @@ const userSchema = new Schema({
   chats: [String],
   first: String,
   last: String,
+  prof: {
+    dob: {
+      m: Number,
+      d: Number,
+      y: Number,
+    },
+    height: Number,
+    weight: Number,
+    gender: Boolean,
+    race: String,
+    curCond: String,
+    prevCond: String,
+    drugs: String,
+    surgs: String,
+    alrgy: String,
+    famHist: String,
+  },
 });
 
 userSchema.methods.generateJWT = function () {
