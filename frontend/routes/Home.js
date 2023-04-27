@@ -73,7 +73,7 @@ const steps = [
   },
   {
     title: "Step 3: Get a diagnosis and treatment options",
-    text: "From the comfort of your own home, receive a quick diagnosis, as well as links to resources that can help you take the next steps towards recovery. We value patient health, and if we don't have a high confidence in our diagnosis, we will direct you to a doctor.",
+    text: "From the comfort of your own home, receive a quick diagnosis, as well as links to resources that can help you take the next steps towards recovery.",
   },
 ];
 
@@ -115,6 +115,7 @@ const Homepage = () => {
                   sx={{
                     fontSize: "3.5rem",
                     textShadow: "1.8px 1.8px 4px #888",
+                    fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
                   }}
                 >
                   {slide.title}
@@ -125,6 +126,7 @@ const Homepage = () => {
                   sx={{
                     fontSize: "1.7rem",
                     textShadow: "0.5px 0.5px 0.5px #888",
+                    fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
                   }}
                 >
                   {slide.text}
@@ -149,6 +151,7 @@ const Homepage = () => {
                     sx={{
                       fontSize: "2rem",
                       textShadow: "1.2px 1.2px 1.2px #888",
+                      fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
                     }}
                   >
                     {step.title}
@@ -159,6 +162,7 @@ const Homepage = () => {
                     sx={{
                       fontSize: "1.4rem",
                       textShadow: "0.5px 0.5px 0.5px #888",
+                      fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
                     }}
                   >
                     {step.text}
