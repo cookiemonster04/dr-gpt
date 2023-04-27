@@ -123,6 +123,9 @@ const Profile = ({ userId, user, themeMode }) => {
       <ThemeProvider theme={theme}>
         <div className={"profile-container"}>
           <Box alignItems="center" justifyContent="space-between">
+
+          <div className="card-container">
+
             <Typography
               variant="h4"
               marginBottom={2}
@@ -133,17 +136,27 @@ const Profile = ({ userId, user, themeMode }) => {
               Welcome back, {username}
             </Typography>
 
+            </div>
+
+            {/* <div className="card-container">
+
             <Typography
               variant="h3"
               marginBottom={2}
               className="section-header"
               align="left"
             >
+
               {" "}
               Profile information
             </Typography>
 
+            </div> */}
+
             <form onSubmit={handleSubmit}>
+              
+            <div className="card-container">
+
               <Typography
                 variant="h4"
                 marginBottom={2}
@@ -151,7 +164,7 @@ const Profile = ({ userId, user, themeMode }) => {
                 align="left"
               >
                 {" "}
-                Medical History
+                Personal Information
               </Typography>
 
               <div className="survey" value={dob} onChange={(event) => setDob(event.target.value)}>
@@ -179,49 +192,9 @@ const Profile = ({ userId, user, themeMode }) => {
                 <input type="text"></input>
               </div>
 
-              <h4>Please list any that apply:</h4>
-
-              <div className="survey" onChange={(event) => setCurConditions(event.target.value)}>
-                <div>
-                  <label className="survey-q">Current medical conditions? &nbsp; </label>
-                </div>
-                <textarea></textarea>
               </div>
 
-              <div className="survey" onChange={(event) => setPastConditions(event.target.value)}>
-                <div>
-                  <label className="survey-q">Previous medical conditions &nbsp; </label>
-                </div>
-                <textarea></textarea>
-              </div>
-
-              <div className="survey" onChange={(event) => setMedications(event.target.value)}>
-                <div>
-                  <label className="survey-q">Medications &nbsp; </label>
-                </div>
-                <textarea></textarea>
-              </div>
-
-              <div className="survey" onChange={(event) => setSurgeries(event.target.value)}>
-                <div>
-                  <label className="survey-q">Surgeries or procedures &nbsp; </label>
-                </div>
-                <textarea></textarea>
-              </div>
-
-              <div className="survey" onChange={(event) => setAllergies(event.target.value)}>
-                <div>
-                  <label className="survey-q">Allergies &nbsp; </label>
-                </div>
-                <textarea></textarea>
-              </div>
-
-              <div className="survey" onChange={(event) => setFamHistory(event.target.value)}>
-                <div>
-                  <label className="survey-q">Family medical conditions or history &nbsp; </label>
-                </div>
-                <textarea></textarea>
-              </div>
+              <div className="card-container">
 
               <Typography
                 variant="h4"
@@ -230,17 +203,81 @@ const Profile = ({ userId, user, themeMode }) => {
                 align="left"
               >
                 {" "}
+                Medical History
+              </Typography>
+
+              <div className="survey" onChange={(event) => setCurConditions(event.target.value)}>
+                <div>
+                  <label className="survey-q">Current medical conditions? &nbsp; </label>
+                </div>
+                <textarea rows="4" cols="50"></textarea>
+              </div>
+
+              <div className="survey" onChange={(event) => setPastConditions(event.target.value)}>
+                <div>
+                  <label className="survey-q">Previous medical conditions &nbsp; </label>
+                </div>
+                <textarea rows="4" cols="50"></textarea>
+              </div>
+
+              <div className="survey" onChange={(event) => setMedications(event.target.value)}>
+                <div>
+                  <label className="survey-q">Medications &nbsp; </label>
+                </div>
+                <textarea rows="4" cols="50"></textarea>
+              </div>
+
+              <div className="survey" onChange={(event) => setSurgeries(event.target.value)}>
+                <div>
+                  <label className="survey-q">Surgeries or procedures &nbsp; </label>
+                </div>
+                <textarea rows="4" cols="50"></textarea>
+              </div>
+
+              <div className="survey" onChange={(event) => setAllergies(event.target.value)}>
+                <div>
+                  <label className="survey-q">Allergies &nbsp; </label>
+                </div>
+                <textarea rows="4" cols="50"></textarea>
+              </div>
+
+              <div className="survey" onChange={(event) => setFamHistory(event.target.value)}>
+                <div>
+                  <label className="survey-q">Family medical conditions or history &nbsp; </label>
+                </div>
+                <textarea rows="4" cols="50"></textarea>
+              </div>
+
+
+
+              </div>
+
+
+              <div className="card-container">
+              
+
+              <Typography
+                variant="h4"
+                marginBottom={2}
+                className="subsection-header"
+                align="left"
+
+              >
+                {" "}
                 Lifestyle
               </Typography>
 
               <div className="survey" onChange={(event) => setDiet(event.target.value)}>
-                <label className="survey-q">Briefly describe your diet (“omnivore”, “vegan”, etc…) &nbsp; </label>
-                <input type="text"></input>
+                <div>
+                <label className="survey-q">Briefly describe your diet (“omnivore”, “vegan”, etc…)  &nbsp; </label>
+                </div>
+                <textarea rows="4" cols="50"></textarea>
+
               </div>
 
               <div className="survey" onChange={(event) => setExercise(event.target.value)}>
                 <label className="survey-q">How often/for how long do you exercise (1-5) &nbsp; </label>
-                <input type="number"></input>
+                <input type="number"style={{width: '50px'}}></input>
               </div>
 
               <div className="survey" onChange={(event) => setSmoke(event.target.checked)}>
@@ -255,16 +292,20 @@ const Profile = ({ userId, user, themeMode }) => {
 
               <div className="survey" onChange={(event) => setStress(event.target.value)}>
                 <label className="survey-q">Rate your stress level in the last 14 days (1-5) &nbsp; </label>
-                <input type="number"></input>
+                <input type="number" style={{width: '50px'}}></input>
               </div>
 
               <div className="survey" onChange={(event) => setSleep(event.target.value)}>
-                <label className="survey-q">How long do you sleep per night? (hrs) &nbsp; </label>
-                <input type="number"></input>
+                <label className="survey-q">How long do you regularly sleep per night? (hrs) &nbsp; </label>
+                <input type="number"style={{width: '50px'}}></input>
               </div>
 
+              </div>
+
+              
+
               <div>
-                <button type="submit">submit</button>
+                <button type="Submit Now">Submit!</button>
               </div>
               
               <Link to={{ pathname: "/chat", state: { dataArray: dataArray } }}>

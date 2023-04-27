@@ -65,7 +65,7 @@
     margin-left: auto;
     padding: 15px 30px;
     border: none;
-    background-color: #61B3FF;
+    background-color: #2493D4;
     color: white;
     border-radius: 6px;
     cursor: pointer;
@@ -74,7 +74,7 @@
 }
 
 .submitBtn:hover {
-    background-color: #abd6f4;
+    background-color: #CBFFEF;
     transform: translateY(-2px);
 }
 
@@ -84,11 +84,11 @@
     z-index: 10;
     font-size: 14px;
     font-weight: 600;
-    color: purple;
+    color: #7ED957;
 }
 
 .input:focus {
-    border: 2px solid purple;
+    border: 2px solid #7ED957;
 }
 
 .input:not(:placeholder-shown)+ .label {

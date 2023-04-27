@@ -10,33 +10,35 @@
 }
 
 .navlight {
-    background-color: #61B3FF;
+    background-color: #2493D4;
     color: white;
 }
 
 .navdark {
-    background-color: white;
-    color: #333;
+    background-color: #2493D4;
+    color: white;
 }
 
 .navlight li .active {
-    background-color: rgb(128, 196, 255);
+    background-color:  #2493D4;
 }
 .navdark li .active {
-    background-color: rgb(182, 224, 255);
+    background-color: #CBFFEF;
 }
 
 .site-title {
     font-size: 1.75rem;
     display: flex;
     align-self: center;
-    font-family: 'Inter', sans-serif;
+   /* font-family: 'Inter', sans-serif;*/
+   font-family: system-ui, 'Nunito', 'Source Sans Pro', sans-serif;
 }
 
 .nav li {
     display: flex;
     align-items: center;
-    font-family: "Agency FB", sans-serif;
+    /*font-family: "Agency FB", sans-serif;*/
+    font-family: system-ui, 'Nunito', 'Source Sans Pro', sans-serif;
     font-size: 25px;
     font-weight: 400;
 }

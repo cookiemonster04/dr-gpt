@@ -5,6 +5,10 @@ import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./Home.css";
 import background from "../../assets/background.png";
+import homeslide2 from "../../assets/homeslide2.png";
+import homeslide3 from "../../assets/homeslide3.png";
+import homeslide4 from "../../assets/homeslide4.png";
+import homeslide5 from "../../assets/homeslide5.png";
 
 const theme = createTheme({
   palette: {
@@ -32,44 +36,44 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 
 const slides = [
   {
-    title: "About Us",
-    text: "description",
+    title: "About Vitawise",
+    text: "Save time and receive peace of mind.",
     backgroundImageUrl: background,
   },
   {
-    title: "Function 1",
-    text: "description",
-    backgroundImageUrl: background,
+    title: "Skip the long waiting times.",
+    text: "Going to the doctor's can feel like it's not worth the effort when you just have a sniffle, or even when it's more serious, life might get in the way. Get your peace of mind now.",
+    backgroundImageUrl: homeslide2,
   },
   {
-    title: "Function 2",
-    text: "description",
-    backgroundImageUrl: background,
+    title: "We have full transparency.",
+    text: "If we are not sure of your diagnosis, or if further steps are needed, we'll walk you through how you can get the proper procedures done by an expert nearby.",
+    backgroundImageUrl: homeslide3,
   },
   {
-    title: "Function 3",
-    text: "description",
-    backgroundImageUrl: background,
+    title: "Specialized to you.",
+    text: "Your diagnoses will be just that: yours. We take into account important factors such as age, medical history, and lifestyle to serve you the best we can.",
+    backgroundImageUrl: homeslide4,
   },
   {
-    title: "Function 4",
-    text: "description",
-    backgroundImageUrl: background,
+    title: "Affordability.",
+    text: "We know that not everyone has well-covering insurance or deep pockets. We have you covered. With the standard model free to use, we're accessible to all.",
+    backgroundImageUrl: homeslide5,
   }
 ];
 
 const steps = [
   {
-    title: "Step 1: Getting Started",
-    text: "description",
+    title: "Step 1: Tell us About You",
+    text: "Take five minutes to fill out some simple information about you that will help us make a better diagnosis.",
   },
   {
-    title: "Step 2: Title",
-    text: "description",
+    title: "Step 2: Tell us about your symptoms",
+    text: "Be as specific as you can! After your initial inputs, we'll ask a couple of follow-up questions to get the information we need.",
   },
   {
-    title: "Step 3: Title",
-    text: "description",
+    title: "Step 3: Get a diagnosis and treatment options",
+    text: "From the comfort of your own home, receive a quick diagnosis, as well as links to resources that can help you take the next steps towards recovery. We value patient health, and if we don't have a high confidence in our diagnosis, we will direct you to a doctor.",
   },
 ];
 
