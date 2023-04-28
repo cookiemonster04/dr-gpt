@@ -6,14 +6,15 @@ import {
   Typography,
   Box,
 } from "@mui/material";
+import "./Chat.css";
 
 const Chat = () => {
   const [message, setMessage] = useState("");
   const [messageHistory, setHistory] = useState([]);
-  const [symptoms, setSymptoms] = useState([{ title: "", duration: "", severity: 0, frequency: "", description: "" }]);
+  const [symptoms, setSymptoms] = useState([{ title: "", duration: "", severity: "", frequency: "", description: "" }]);
 
   const addSymptom = () => {
-    setSymptoms([...symptoms, { title: "", duration: "", severity: 0, frequency: "", description: "" }]);
+    setSymptoms([...symptoms, { title: "", duration: "", severity: "", frequency: "", description: "" }]);
   };
 
   const handleChange = (e, index, type) => {
@@ -32,7 +33,7 @@ const Chat = () => {
     const concatenatedString = symptoms
     .map((symptom, index) => {
       const { title, duration, severity, frequency, description } = symptom;
-      return `symptom ${index + 1}: title: ${title}, duration: ${duration}, severity: ${severity}, frequency: ${frequency}, description: ${description}`;
+      return `symptom ${index + 1}: title: ${title}, duration: ${duration}, severity (1-10): ${severity}, frequency: ${frequency}, description: ${description}`;
     })
     .join(", ");
 
@@ -144,7 +145,7 @@ const Chat = () => {
               <br></br>
             </label>
             <label>
-              Severity
+              Severity (1-10)
               <br></br>
               <input
                 type="number"
@@ -187,7 +188,7 @@ const Chat = () => {
 
         {messageHistory.map((message, index) => (
           <div key={index}>
-            <p>{message}</p>
+            <p style={{ maxWidth: "350px"}}>{message}</p>
           </div>
         ))}
 

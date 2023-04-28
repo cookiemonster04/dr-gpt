@@ -1,5 +1,10 @@
 @import url(https://allfont.net/allfont.css?fonts=agency-fb);
 
+html,
+body {
+  height: 100%;
+}
+
 .slide-bg {
     background-size: cover;
     background-position: center;
@@ -26,3 +31,12 @@
     transform: scale(1.05);
   }
   
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95%;
+  }
+
+ 

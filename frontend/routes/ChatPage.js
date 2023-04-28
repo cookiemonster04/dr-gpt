@@ -6,7 +6,13 @@ const ChatPage = ({ user, themeMode }) => {
   if (!user) {
     return <Navigate to="/login" />;
   }
-  return <Chat />;
+  return (
+    <div className="container">
+      <h1>New Converstaion</h1>
+      <Chat />
+    </div>
+  );
+  
 };
 
 export { ChatPage };
