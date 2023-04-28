@@ -1,27 +1,26 @@
-import React, { useState, cloneElement } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { dataArray } from "./Profile";
-import { Typography, Box, Button } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { dataArray } from './Profile';
+import {
+  Typography,
+  Box,
+} from "@mui/material";
 
 const Chat = () => {
   const [message, setMessage] = useState("");
   const [messageHistory, setHistory] = useState([]);
-  const [symptoms, setSymptoms] = useState([]);
+  const [symptoms, setSymptoms] = useState([{ title: "", duration: "", severity: 0, frequency: "", description: "" }]);
 
-  const FormItem = (title, name, comp, symptom, setSymptom) => (
-    <div
-      className="survey"
-      onChange={(event) =>
-        setSymptom({ ...symptom, [name]: event.target.value })
-      }
-    >
-      <label className="survey-q">{title} &nbsp; </label>
-      {comp}
-    </div>
-  );
+  const addSymptom = () => {
+    setSymptoms([...symptoms, { title: "", duration: "", severity: 0, frequency: "", description: "" }]);
+  };
+
+  const handleChange = (e, index, type) => {
+    const newSymptoms = [...symptoms];
+    newSymptoms[index][type] = e.target.value;
+    setSymptoms(newSymptoms);
+  };
 
   /*const location = useLocation();
   const dataArray = location.state?.dataArray;*/
@@ -29,11 +28,18 @@ const Chat = () => {
   const handleData = (event) => {
     event.preventDefault();
     setHistory((curHistory) => [...curHistory, message]);
+
+    const concatenatedString = symptoms
+    .map((symptom, index) => {
+      const { title, duration, severity, frequency, description } = symptom;
+      return `symptom ${index + 1}: title: ${title}, duration: ${duration}, severity: ${severity}, frequency: ${frequency}, description: ${description}`;
+    })
+    .join(", ");
+
     axios
       .post("/api/message", {
-        message:
-          "I'm going to give you a set of symptoms and I want you to attempt to give me a diagnosis with the percentage of confidence, You should aim for the highest confidence so when needed, ask followup questions to gather more information. Then I'm going to tell you if you were right or wrong. " +
-          /* + "Before giving you the symptoms, here is the medical history of the patient: " 
+        message: ("I'm going to give you a set of symptoms and I want you to attempt to give me a diagnosis with the percentage of confidence, You should aim for the highest confidence so when needed, ask followup questions to gather more information. Then I'm going to tell you if you were right or wrong. "
+        /* + "Before giving you the symptoms, here is the medical history of the patient: " 
         + "DOB: " + dataArray[0] 
         + ", Height: " + dataArray[1] 
         + "cm, Weight: " + dataArray[2] 
@@ -51,42 +57,15 @@ const Chat = () => {
         + ", Alcohol consumption: " + dataArray[14]
         + ", Stress level (1-5): " + dataArray[15]
         + ", Sleep: " + dataArray[16] + "hours/night." */
-
-          "symptom 1: " +
-          symptom1 +
-          ", duration: " +
-          duration1 +
-          ", severity (1-10): " +
-          severity1 +
-          ", frequency: " +
-          frequency1 +
-          ", description" +
-          description1 +
-          ", symptom 2: " +
-          symptom2 +
-          ", duration: " +
-          duration2 +
-          ", severity (1-10): " +
-          severity2 +
-          ", frequency: " +
-          frequency2 +
-          ", description" +
-          description2 +
-          ", symptom 3: " +
-          symptom3 +
-          ", duration: " +
-          duration3 +
-          ", severity (1-10): " +
-          severity3 +
-          ", frequency: " +
-          frequency3 +
-          ", description" +
-          description3,
+        
+        + concatenatedString
+        )
       })
       .then(
         (response) => {
           setHistory((curHistory) => [...curHistory, response.data]);
           console.log("Message sent success:", response.data);
+          console.log(concatenatedString);
         },
         (error) => {
           console.error("Message send fail:", error);
@@ -106,7 +85,7 @@ const Chat = () => {
     setHistory((curHistory) => [...curHistory, message]);
     axios
       .post("/api/message", {
-        message: symptom1 + ", " + symptom2 + ", " + symptom3 + ", " + message,
+        message: (message)
       })
       .then(
         (response) => {
@@ -125,92 +104,93 @@ const Chat = () => {
       console.log(messageHistory[i]);
     }
   };
-  const symptom_attrs = [
-    ["Title", "title", <input type="text"></input>],
-    ["Duration", "time", <input type="text"></input>],
-    ["Severity (1-10)", "sev", <input type="number"></input>],
-    ["Frequency", "freq", <input type="text"></input>],
-    ["Description", "desc", <textarea></textarea>],
-  ];
+
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <div style={{ marginTop: "15px" }}>
-        <form onSubmit={handleData} style={{ marginBottom: "15px" }}>
-          {symptoms.map((symptom, idx) => {
-            return (
-              <>
-                <div
-                  style={{
-                    display: "flex",
-                    maxWidth: "500px",
-                    justifyContent: "space-between",
-                    marginBottom: "15px",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    marginBottom={2}
-                    className="subsection-header"
-                    align="left"
-                    key={`symptom_${idx}`}
-                  >
-                    {" "}
-                    Symptom {idx + 1}:
-                  </Typography>
-                  <FontAwesomeIcon
-                    icon={faXmark}
-                    style={{ color: "#dc2626", cursor: "pointer" }}
-                    size="lg"
-                    onClick={() =>
-                      setSymptoms([
-                        ...symptoms.slice(0, idx),
-                        ...symptoms.slice(idx + 1),
-                      ])
-                    }
-                  >
-                    {" "}
-                  </FontAwesomeIcon>
-                </div>
-                {symptom_attrs.map((item, idx) => {
-                  return FormItem(
-                    item[0],
-                    item[1],
-                    React.cloneElement(item[2], { value: symptom[item] }),
-                    symptoms[idx],
-                    (symptom) =>
-                      setSymptoms([
-                        ...symptoms.slice(0, idx),
-                        symptom,
-                        symptoms.slice(idx + 1),
-                      ])
-                  );
-                })}
-              </>
-            );
-          })}
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() =>
-              setSymptoms([
-                ...symptoms,
-                symptom_attrs.reduce((obj, item) => {
-                  return {
-                    ...obj,
-                    [item[0]]: "",
-                  };
-                }, {}),
-              ])
-            }
-          >
-            + symptom
-          </Button>
-        </form>
+    <>
+    <div>
+      <form onSubmit={handleData}>
+
+      <div>
+        {symptoms.map((symptom, index) => (
+          <div key={index}>
+
+            <Typography
+              variant="h5"
+              marginBottom={2}
+              className="subsection-header"
+              align="left"
+            >
+              {" "}
+              Symptom #{index + 1}
+            </Typography>
+            <label>
+              Title
+              <br></br>
+              <input
+                type="text"
+                value={symptom.title}
+                onChange={(e) => handleChange(e, index, "title")}
+              />
+              <br></br>
+            </label>
+            <label>
+              Duration
+              <br></br>
+              <input
+                type="text"
+                value={symptom.duration}
+                onChange={(e) => handleChange(e, index, "duration")}
+              />
+              <br></br>
+            </label>
+            <label>
+              Severity
+              <br></br>
+              <input
+                type="number"
+                value={symptom.severity}
+                onChange={(e) => handleChange(e, index, "severity")}
+              />
+              <br></br>
+            </label>
+            <label>
+              Frequency
+              <br></br>
+              <input
+                type="text"
+                value={symptom.frequency}
+                onChange={(e) => handleChange(e, index, "frequency")}
+              />
+              <br></br>
+            </label>
+            <label>
+              Description
+              <br></br>
+              <input
+                type="text"
+                value={symptom.description}
+                onChange={(e) => handleChange(e, index, "description")}
+              />
+              <br></br>
+              <br></br>
+            </label>
+          </div>
+          ))}
+
+        <button type="button" onClick={addSymptom}>Add Symptom</button>
+        <br></br>
+        <button onClick={handleData}>Submit</button>
+      </div>
+
+        <br></br>
+      </form>
+
         {messageHistory.map((message, index) => (
           <div key={index}>
             <p>{message}</p>
           </div>
         ))}
+
         <div>
           <form onSubmit={handleSubmit}>
             <div>
@@ -219,15 +199,15 @@ const Chat = () => {
                 placeholder="message of details"
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
-                style={{ marginBottom: "10px" }}
               />
-
-              <button type="submit">Send Chat</button>
+            
+            <button type="submit">Send Chat</button>
             </div>
           </form>
         </div>
+
       </div>
-    </div>
+    </>
   );
 };
 
