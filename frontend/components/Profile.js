@@ -168,27 +168,27 @@ const Profile = ({ userId, user, themeMode }) => {
               </Typography>
 
               <div className="survey" value={dob} onChange={(event) => setDob(event.target.value)}>
-                <label className="survey-q">What is your date of birth? &nbsp; </label>
+                <label className="survey-q">Date of birth? &nbsp; </label>
                 <input type="date"></input>
               </div>
               
               <div className="survey" value={height} onChange={(event) => setHeight(event.target.value)}>
-                <label className="survey-q">How tall are you (cm)? &nbsp; </label>
+                <label className="survey-q">Height (cm)? &nbsp; </label>
                 <input type="number"></input>
               </div>
 
               <div className="survey" value={weight} onChange={(event) => setWeight(event.target.value)}>
-                <label className="survey-q">What is your weight (kg)? &nbsp; </label>
+                <label className="survey-q">Weight (kg)? &nbsp; </label>
                 <input type="number"></input>
               </div>
 
               <div className="survey" value={gender} onChange={(event) => setGender(event.target.value)}>
-                <label className="survey-q">What is your gender? &nbsp; </label>
+                <label className="survey-q">Your sex (male or female)? &nbsp; </label>
                 <input type="text"></input>
               </div>
 
               <div className="survey" onChange={(event) => setEthnicity(event.target.value)}>
-                <label className="survey-q">What is your ethnicity? &nbsp; </label>
+                <label className="survey-q">Ethnicity (if multiple, list all)? &nbsp; </label>
                 <input type="text"></input>
               </div>
 
@@ -222,7 +222,7 @@ const Profile = ({ userId, user, themeMode }) => {
 
               <div className="survey" onChange={(event) => setMedications(event.target.value)}>
                 <div>
-                  <label className="survey-q">Medications &nbsp; </label>
+                  <label className="survey-q">Medications (list any vitamins or supplememts you may be taking) &nbsp; </label>
                 </div>
                 <textarea rows="4" cols="50"></textarea>
               </div>
