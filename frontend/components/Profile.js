@@ -215,7 +215,7 @@ const Profile = ({ userId, user, themeMode }) => {
 
               <div className="survey" onChange={(event) => setPastConditions(event.target.value)}>
                 <div>
-                  <label className="survey-q">Previous medical conditions &nbsp; </label>
+                  <label className="survey-q">Previous medical conditions? &nbsp; </label>
                 </div>
                 <textarea rows="4" cols="50"></textarea>
               </div>
@@ -236,14 +236,14 @@ const Profile = ({ userId, user, themeMode }) => {
 
               <div className="survey" onChange={(event) => setAllergies(event.target.value)}>
                 <div>
-                  <label className="survey-q">Allergies &nbsp; </label>
+                  <label className="survey-q">Allergies? &nbsp; </label>
                 </div>
                 <textarea rows="4" cols="50"></textarea>
               </div>
 
               <div className="survey" onChange={(event) => setFamHistory(event.target.value)}>
                 <div>
-                  <label className="survey-q">Family medical conditions or history &nbsp; </label>
+                  <label className="survey-q">Family medical conditions or history (such as diabetes) &nbsp; </label>
                 </div>
                 <textarea rows="4" cols="50"></textarea>
               </div>
@@ -286,12 +286,12 @@ const Profile = ({ userId, user, themeMode }) => {
               </div>
 
               <div className="survey" onChange={(event) => setAlcohol(event.target.checked)}>
-                <label className="survey-q">Have you consumed Alcohol in the past 2 months? &nbsp; </label>
+                <label className="survey-q">Have you consumed alcohol in the past 2 months? &nbsp; </label>
                 <input type="checkbox"></input>
               </div>
 
               <div className="survey" onChange={(event) => setStress(event.target.value)}>
-                <label className="survey-q">Rate your stress level in the last 14 days (1-5) &nbsp; </label>
+                <label className="survey-q">Rate your stress level in the last 14 days, where 1 is lowest and 5 is highest &nbsp; </label>
                 <input type="number" style={{width: '50px'}}></input>
               </div>
 
