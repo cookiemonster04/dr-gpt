@@ -66,7 +66,7 @@ const userSchema = new Schema({
       message: (props) => messageGenerator(passwordCheck(props.value)),
     },
   },
-  chats: [String],
+  chats: [{ id: String, date: String }],
   first: String,
   last: String,
   prof: {

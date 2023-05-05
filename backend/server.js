@@ -7,6 +7,7 @@ import { editUser, getUser, setUser } from "./handlers/userHandler.js";
 import { auth, login, logout } from "./handlers/authHandler.js";
 import { handleError, errorConvert } from "./middleware/errorHandler.js";
 import { sendMessage } from "./handlers/chatHandler.js";
+import { createChat, getChat, getChats } from "./handlers/chatHandler.js";
 
 connectDB();
 dotenv.config({ path: "backend/config.env" });
@@ -28,6 +29,10 @@ app.post("/api/login", login);
 app.get("/api/logout", logout);
 
 app.post("/api/message", sendMessage);
+
+app.get("/api/chat/create", createChat);
+app.get("/api/c/:chatId", getChat);
+app.get("/api/chats", getChats);
 
 app.get("*", (req, res, next) => {
   console.log("Request received");
