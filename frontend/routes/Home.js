@@ -20,7 +20,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Agency FB, sans-serif",
+    fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
   },
 });
 
@@ -77,10 +77,55 @@ const steps = [
   },
 ];
 
+
+
+
+
 const Homepage = () => {
   return (
     <ThemeProvider theme={theme}>
       <Box>
+      <Container>
+          <Grid
+            container
+            spacing={50}
+            sx={{ marginTop: "-375px", marginLeft: "-575px" , marginBottom: "50px"}}
+          >
+            {steps.map((step, index) => (
+              <Grid item xs={0} md={4} key={index}>
+                <StyledPaper elevation={3}>
+                  <Typography
+                    variant="h6"
+                    component="h2"
+                    gutterBottom
+                    sx={{
+                      fontSize: "2rem",
+                      textShadow: "1.2px 1.2px 1.2px #888",
+                      fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
+                    }}
+                  >
+                    {step.title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    gutterBottom
+                    sx={{
+                      fontSize: "1.4rem",
+                      textShadow: "0.5px 0.5px 0.5px #888",
+                      fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
+                    }}
+                  >
+                    {step.text}
+                  </Typography>
+                </StyledPaper>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+
+
+   
+
         <Carousel showArrows autoPlay infiniteLoop interval={5000}>
           {slides.map((slide, index) => (
             <Box
@@ -135,43 +180,7 @@ const Homepage = () => {
             </Box>
           ))}
         </Carousel>
-        <Container>
-          <Grid
-            container
-            spacing={50}
-            sx={{ marginTop: "-375px", marginLeft: "-575px" }}
-          >
-            {steps.map((step, index) => (
-              <Grid item xs={0} md={4} key={index}>
-                <StyledPaper elevation={3}>
-                  <Typography
-                    variant="h6"
-                    component="h2"
-                    gutterBottom
-                    sx={{
-                      fontSize: "2rem",
-                      textShadow: "1.2px 1.2px 1.2px #888",
-                      fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
-                    }}
-                  >
-                    {step.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    gutterBottom
-                    sx={{
-                      fontSize: "1.4rem",
-                      textShadow: "0.5px 0.5px 0.5px #888",
-                      fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
-                    }}
-                  >
-                    {step.text}
-                  </Typography>
-                </StyledPaper>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
+        
       </Box>
     </ThemeProvider>
   );
