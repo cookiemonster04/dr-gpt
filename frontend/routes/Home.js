@@ -83,7 +83,7 @@ function EmptyBoxWithButton() {
     display: 'block',
     margin: '0 auto',
     fontSize: '6rem',
-    backgroundColor: '#1E90FF', // background color of button, modify later
+    backgroundColor: '#2493D4', // background color of button, modify later
     color: 'white',
     border: '2px solid black', // border around the button
     borderRadius: '5px',
@@ -91,7 +91,7 @@ function EmptyBoxWithButton() {
 
   const boxStyle = {
 
-    padding: '20px',
+    padding: '100px',
     textAlign: 'center', // added property to center text
   };
 
@@ -147,67 +147,72 @@ const Homepage = () => {
               </Grid>
             ))}
           </Grid>
+
+          <EmptyBoxWithButton />
+   
+
+   <Carousel showArrows autoPlay infiniteLoop interval={5000}>
+     {slides.map((slide, index) => (
+       <Box
+         key={index}
+         className="slide-bg"
+         sx={{
+           
+           height: "70vh",
+           display: "flex",
+           alignItems: "center",
+           //justifyContent: 'flex-start', // Change from 'center' to 'flex-start'
+           backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url(${slide.backgroundImageUrl})`,
+           backgroundSize: "cover", // Add this line to resize the background image according to the screen size
+           backgroundPosition: "center", // Add this line to keep the background image centered
+         }}
+       >
+         <Paper
+           elevation={6}
+           sx={{
+             maxWidth: "35%",
+             padding: 4,
+             alignItems: "center",
+             marginLeft: 10, // Add this line to provide some left margin
+             backgroundColor: "rgba(255, 255, 255, 0.9)",
+             borderRadius: 2,
+             boxShadow:
+               "0 12px 30px rgba(0, 0, 0, 0.4), 0 10px 12px rgba(0, 0, 0, 0.6)",
+           }}
+         >
+           <Typography
+             variant="h4"
+             component="h1"
+             gutterBottom
+             sx={{
+               fontSize: "3.5rem",
+               textShadow: "1.8px 1.8px 4px #888",
+               fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
+             }}
+           >
+             {slide.title}
+           </Typography>
+           <Typography
+             variant="body1"
+             gutterBottom
+             sx={{
+               fontSize: "1.7rem",
+               textShadow: "0.5px 0.5px 0.5px #888",
+               fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
+             }}
+           >
+             {slide.text}
+           </Typography>
+         </Paper>
+       </Box>
+     ))}
+   </Carousel>
+
         </Container>
 
 
 
-        <EmptyBoxWithButton />
-   
 
-        <Carousel showArrows autoPlay infiniteLoop interval={5000}>
-          {slides.map((slide, index) => (
-            <Box
-              key={index}
-              className="slide-bg"
-              sx={{
-                height: "70vh",
-                display: "flex",
-                alignItems: "center",
-                //justifyContent: 'flex-start', // Change from 'center' to 'flex-start'
-                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url(${slide.backgroundImageUrl})`,
-                backgroundSize: "cover", // Add this line to resize the background image according to the screen size
-                backgroundPosition: "center", // Add this line to keep the background image centered
-              }}
-            >
-              <Paper
-                elevation={6}
-                sx={{
-                  maxWidth: "35%",
-                  padding: 4,
-                  marginLeft: 10, // Add this line to provide some left margin
-                  backgroundColor: "rgba(255, 255, 255, 0.9)",
-                  borderRadius: 2,
-                  boxShadow:
-                    "0 12px 30px rgba(0, 0, 0, 0.4), 0 10px 12px rgba(0, 0, 0, 0.6)",
-                }}
-              >
-                <Typography
-                  variant="h4"
-                  component="h1"
-                  gutterBottom
-                  sx={{
-                    fontSize: "3.5rem",
-                    textShadow: "1.8px 1.8px 4px #888",
-                    fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
-                  }}
-                >
-                  {slide.title}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  gutterBottom
-                  sx={{
-                    fontSize: "1.7rem",
-                    textShadow: "0.5px 0.5px 0.5px #888",
-                    fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
-                  }}
-                >
-                  {slide.text}
-                </Typography>
-              </Paper>
-            </Box>
-          ))}
-        </Carousel>
         
       </Box>
     </ThemeProvider>
