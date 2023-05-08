@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { Box, Typography, Container, Grid, Paper } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
@@ -77,6 +78,31 @@ const steps = [
   },
 ];
 
+function EmptyBoxWithButton() {
+  const buttonStyle = {
+    display: 'block',
+    margin: '0 auto',
+    fontSize: '6rem',
+    backgroundColor: '#1E90FF', // background color of button, modify later
+    color: 'white',
+    border: '2px solid black', // border around the button
+    borderRadius: '5px',
+  };
+
+  const boxStyle = {
+
+    padding: '20px',
+    textAlign: 'center', // added property to center text
+  };
+
+  return (
+    <div style={{padding: '40px' }}>
+      <Link to="/login" style={{ textDecoration: 'none' }}>
+          <button style={buttonStyle}>Sign up now!!!</button>
+      </Link>
+    </div>
+  );
+}
 
 
 
@@ -124,6 +150,8 @@ const Homepage = () => {
         </Container>
 
 
+
+        <EmptyBoxWithButton />
    
 
         <Carousel showArrows autoPlay infiniteLoop interval={5000}>
