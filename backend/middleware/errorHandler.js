@@ -55,5 +55,10 @@ const catchWrap =
     });
   };
 
+const catchWrapGenAnswer = (func) => (arg1, arg2) => {
+  Promise.resolve(func(arg1, arg2)).catch((error) => {
+    console.log(error);
+  });
+};
 export default handleError;
-export { handleError, setError, catchWrap, errorConvert };
+export { handleError, setError, catchWrap, catchWrapGenAnswer, errorConvert };

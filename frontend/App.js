@@ -7,7 +7,8 @@ import Signup from "./routes/Signup";
 import { ProfilePage, ProfileHome } from "./routes/ProfilePage";
 import Login from "./routes/Login";
 import Logout from "./routes/Logout";
-import { ChatPage } from "./routes/ChatPage";
+import Chat from "./routes/Chat";
+import Start from "./routes/Start";
 import "./App.css";
 
 function App() {
@@ -42,31 +43,105 @@ function App() {
   }, [theme]);
   return (
     <div className={`App ${theme}`}>
-      <Navbar getTheme={theme} handleTheme={toggleTheme} user={user} />
       {cookieRetrieved ? (
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home user={user} />} />
-            <Route
-              path="/signup"
-              element={<Signup user={user} setUser={setUser} />}
-            />
-            <Route
-              path="/profile"
-              element={<ProfileHome user={user} themeMode={theme} />}
-            />
-            <Route
-              path="/profile/:userId"
-              element={<ProfilePage themeMode={theme} />}
-            />
-            <Route
-              path="/login"
-              element={<Login user={user} setUser={setUser} />}
-            />
-            <Route path="/logout" element={<Logout setUser={setUser} />} />
-            <Route path="/chat" element={<ChatPage user={user} themeMode={theme} />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar
+                  getTheme={theme}
+                  handleTheme={toggleTheme}
+                  user={user}
+                />
+                <div className="container">
+                  <Home user={user} />
+                </div>
+              </>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <>
+                <Navbar
+                  getTheme={theme}
+                  handleTheme={toggleTheme}
+                  user={user}
+                />{" "}
+                <Signup user={user} setUser={setUser} />
+              </>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <>
+                <Navbar
+                  getTheme={theme}
+                  handleTheme={toggleTheme}
+                  user={user}
+                />{" "}
+                <ProfileHome user={user} themeMode={theme} />
+              </>
+            }
+          />
+          <Route
+            path="/profile/:userId"
+            element={
+              <>
+                <Navbar
+                  getTheme={theme}
+                  handleTheme={toggleTheme}
+                  user={user}
+                />{" "}
+                <ProfilePage themeMode={theme} user={user} />
+              </>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <>
+                <Navbar
+                  getTheme={theme}
+                  handleTheme={toggleTheme}
+                  user={user}
+                />{" "}
+                <Login user={user} setUser={setUser} />
+              </>
+            }
+          />
+          <Route
+            path="/logout"
+            element={
+              <>
+                <Navbar
+                  getTheme={theme}
+                  handleTheme={toggleTheme}
+                  user={user}
+                />{" "}
+                <Logout setUser={setUser} />
+              </>
+            }
+          />
+          {/* <Route
+              path="/edit"
+              element={
+                <>
+                  <Navbar
+                    getTheme={theme}
+                    handleTheme={toggleTheme}
+                    user={user}
+                  />{" "}
+                  <EditPage user={user} setUser={setUser} />
+                </>
+              }
+            /> */}
+          <Route path="/chat" element={<Chat user={user} />} />
+          <Route path="/chat/:chatId" element={<Chat user={user} />} />
+          <Route path="/start" element={<Start user={user} />} />
+        </Routes>
       ) : (
         <div className="container">Loading, please stand by...</div>
       )}

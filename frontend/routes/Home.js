@@ -59,7 +59,7 @@ const slides = [
     title: "Affordability.",
     text: "We know that not everyone has well-covering insurance or deep pockets. We have you covered. With the standard model free to use, we're accessible to all.",
     backgroundImageUrl: homeslide5,
-  }
+  },
 ];
 
 const steps = [
@@ -115,7 +115,8 @@ const Homepage = () => {
                   sx={{
                     fontSize: "3.5rem",
                     textShadow: "1.8px 1.8px 4px #888",
-                    fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
+                    fontFamily:
+                      "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
                   }}
                 >
                   {slide.title}
@@ -126,7 +127,8 @@ const Homepage = () => {
                   sx={{
                     fontSize: "1.7rem",
                     textShadow: "0.5px 0.5px 0.5px #888",
-                    fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
+                    fontFamily:
+                      "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
                   }}
                 >
                   {slide.text}
@@ -151,7 +153,8 @@ const Homepage = () => {
                     sx={{
                       fontSize: "2rem",
                       textShadow: "1.2px 1.2px 1.2px #888",
-                      fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
+                      fontFamily:
+                        "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
                     }}
                   >
                     {step.title}
@@ -162,7 +165,8 @@ const Homepage = () => {
                     sx={{
                       fontSize: "1.4rem",
                       textShadow: "0.5px 0.5px 0.5px #888",
-                      fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
+                      fontFamily:
+                        "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
                     }}
                   >
                     {step.text}

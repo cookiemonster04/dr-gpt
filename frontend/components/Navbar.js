@@ -1,28 +1,27 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import DarkModeToggle from "react-dark-mode-toggle";
-import logo from '../../assets/logo.png'
+import logo from "../../assets/logo.png";
 import "./Navbar.css";
 
-export default function Navbar({
-  handleTheme,
-  getTheme,
-  user,
-}) {
+export default function Navbar({ handleTheme, getTheme, user }) {
   return (
     <nav className={getTheme === "light" ? "nav navlight" : "nav navdark"}>
       <NavLink to="/" className="site-title">
-        <img src={logo} style={{ marginRight: "10px", width: "60px", height: "60px"}}/>
+        <img
+          src={logo}
+          style={{ marginRight: "10px", width: "60px", height: "60px" }}
+        />
         Vitawise
       </NavLink>
 
       <ul>
         <li>
-        <DarkModeToggle
-          onChange={handleTheme}
-          checked={getTheme === "dark"}
-          size={80}
-        />
+          <DarkModeToggle
+            onChange={handleTheme}
+            checked={getTheme === "dark"}
+            size={80}
+          />
         </li>
         {user && (
           <>
