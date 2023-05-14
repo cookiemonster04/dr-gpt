@@ -121,21 +121,17 @@ const Profile = ({ userId, user, themeMode }) => {
   return (
     username && (
       <ThemeProvider theme={theme}>
-        <div className={"profile-container"}>
-          <Box alignItems="center" justifyContent="space-between">
-
-          <div className="card-container">
-
-            <Typography
-              variant="h4"
-              marginBottom={2}
-              className="section-header"
-              align="center"
-            >
-              {" "}
-              Welcome back, {username}
-            </Typography>
-
+        <div className="profile-container"> {/* Added class name */}
+          <Box alignItems="left" justifyContent="space-between">
+            <div className="card-container"> {/* Added class name */}
+              <Typography
+                variant="h4"
+                marginBottom={2}
+                className="section-header"
+                align="center"
+              >
+                Welcome back, {username}!
+              </Typography>
             </div>
 
             {/* <div className="card-container">
@@ -155,41 +151,113 @@ const Profile = ({ userId, user, themeMode }) => {
 
             <form onSubmit={handleSubmit}>
               
-            <div className="card-container">
+            <div className="profile-section-container">
+              
+
+              <div className="card-container3">
+
+                <Typography
+                  variant="h4"
+                  marginBottom={2}
+                  className="subsection-header"
+                  align="left"
+                >
+                  {" "}
+                  Personal Information
+                </Typography>
+
+                  <div className="survey" onChange={(event) => setDob(event.target.checked)}>
+                    <div className="survey-row">
+                    <label className="survey-q">Date of birth? &nbsp; </label>
+                      <input type="date"  className="inputNumber" style={{ width: '100px' }}></input>
+                    </div>
+                  </div>
+
+                  <div className="survey" onChange={(event) => setHeight(event.target.checked)}>
+                    <div className="survey-row">
+                    <label className="survey-q">Height (cm)? &nbsp; </label>
+                      <input type="text"  className="inputNumber" style={{ width: '100px' }}></input>
+                    </div>
+                  </div>
+
+                  <div className="survey" onChange={(event) => setWeight(event.target.checked)}>
+                    <div className="survey-row">
+                    <label className="survey-q">Weight (kg)? &nbsp; </label>
+                      <input type="text"  className="inputNumber" style={{ width: '100px' }}></input>
+                    </div>
+                  </div>
+
+                  <div className="survey" onChange={(event) => setGender(event.target.checked)}>
+                    <div className="survey-row">
+                    <label className="survey-q">Your sex (male or female)? &nbsp; </label>
+                      <input type="text"  className="inputNumber" style={{ width: '100px' }}></input>
+                    </div>
+                  </div>
+
+                  <div className="survey" onChange={(event) => setEthnicity(event.target.checked)}>
+                    <div className="survey-row">
+                    <label className="survey-q">Ethnicity (if multiple, list all)? &nbsp; </label>
+                      <input type="text"  className="inputNumber" style={{ width: '100px' }}></input>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div className="card-container3">
+              
 
               <Typography
                 variant="h4"
                 marginBottom={2}
                 className="subsection-header"
                 align="left"
+
               >
                 {" "}
-                Personal Information
+                Lifestyle
               </Typography>
 
-              <div className="survey" value={dob} onChange={(event) => setDob(event.target.value)}>
-                <label className="survey-q">Date of birth? &nbsp; </label>
-                <input type="date"></input>
-              </div>
-              
-              <div className="survey" value={height} onChange={(event) => setHeight(event.target.value)}>
-                <label className="survey-q">Height (cm)? &nbsp; </label>
-                <input type="number"></input>
-              </div>
+                
+                <div className="survey" onChange={(event) => setDiet(event.target.checked)}>
+                  <div className="survey-row">
+                  <label className="survey-q">Briefly describe your diet (“omnivore”, “vegan”, etc…) &nbsp; </label>
+                    <input type="number"  className="inputNumber2" style={{ width: '100px' }}></input>
+                  </div>
+                </div>
 
-              <div className="survey" value={weight} onChange={(event) => setWeight(event.target.value)}>
-                <label className="survey-q">Weight (kg)? &nbsp; </label>
-                <input type="number"></input>
-              </div>
 
-              <div className="survey" value={gender} onChange={(event) => setGender(event.target.value)}>
-                <label className="survey-q">Your sex (male or female)? &nbsp; </label>
-                <input type="text"></input>
-              </div>
+                <div className="survey" onChange={(event) => setExercise(event.target.checked)}>
+                  <div className="survey-row">
+                  <label className="survey-q">How often/for how long do you exercise (1-5) &nbsp; </label>
+                    <input type="number"  className="inputNumber2" style={{ width: '100px' }}></input>
+                  </div>
+                </div>
 
-              <div className="survey" onChange={(event) => setEthnicity(event.target.value)}>
-                <label className="survey-q">Ethnicity (if multiple, list all)? &nbsp; </label>
-                <input type="text"></input>
+                <div className="survey" onChange={(event) => setSleep(event.target.checked)}>
+                  <div className="survey-row">
+                  <label className="survey-q">How long do you regularly sleep per night? (hrs) &nbsp; </label>
+                    <input type="number"  className="inputNumber2" style={{ width: '100px' }}></input>
+                  </div>
+                </div>
+
+                <div className="survey" onChange={(event) => setAlcohol(event.target.checked)}>
+                  <div className="survey-row">
+                    <label className="survey-q">Are you a regular drinker?</label>
+                    <input type="checkbox" className="checkbox"></input>
+                  </div>
+                </div>
+
+                
+                <div className="survey" onChange={(event) => setSmoke(event.target.checked)}>
+                  <div className="survey-row">
+                    <label className="survey-q">Have you smoked in the past two months?</label>
+                    <input type="checkbox" className="checkbox"></input>
+                  </div>
+                </div>
+
+                
+
+
               </div>
 
               </div>
@@ -253,54 +321,7 @@ const Profile = ({ userId, user, themeMode }) => {
               </div>
 
 
-              <div className="card-container">
               
-
-              <Typography
-                variant="h4"
-                marginBottom={2}
-                className="subsection-header"
-                align="left"
-
-              >
-                {" "}
-                Lifestyle
-              </Typography>
-
-              <div className="survey" onChange={(event) => setDiet(event.target.value)}>
-                <div>
-                <label className="survey-q">Briefly describe your diet (“omnivore”, “vegan”, etc…)  &nbsp; </label>
-                </div>
-                <textarea rows="4" cols="50"></textarea>
-
-              </div>
-
-              <div className="survey" onChange={(event) => setExercise(event.target.value)}>
-                <label className="survey-q">How often/for how long do you exercise (1-5) &nbsp; </label>
-                <input type="number"style={{width: '50px'}}></input>
-              </div>
-
-              <div className="survey" onChange={(event) => setSmoke(event.target.checked)}>
-                <label className="survey-q">Have you smoked in the last 2 months? &nbsp; </label>
-                <input type="checkbox"></input>
-              </div>
-
-              <div className="survey" onChange={(event) => setAlcohol(event.target.checked)}>
-                <label className="survey-q">Have you consumed alcohol in the past 2 months? &nbsp; </label>
-                <input type="checkbox"></input>
-              </div>
-
-              <div className="survey" onChange={(event) => setStress(event.target.value)}>
-                <label className="survey-q">Rate your stress level in the last 14 days, where 1 is lowest and 5 is highest &nbsp; </label>
-                <input type="number" style={{width: '50px'}}></input>
-              </div>
-
-              <div className="survey" onChange={(event) => setSleep(event.target.value)}>
-                <label className="survey-q">How long do you regularly sleep per night? (hrs) &nbsp; </label>
-                <input type="number"style={{width: '50px'}}></input>
-              </div>
-
-              </div>
 
               
 
