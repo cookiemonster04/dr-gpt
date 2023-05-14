@@ -10,6 +10,10 @@ import homeslide2 from "../../assets/homeslide2.png";
 import homeslide3 from "../../assets/homeslide3.png";
 import homeslide4 from "../../assets/homeslide4.png";
 import homeslide5 from "../../assets/homeslide5.png";
+import step1 from "../../assets/step1.png";
+import step2 from "../../assets/step2.png";
+import step3 from "../../assets/step3.png";
+
 
 const theme = createTheme({
   palette: {
@@ -33,6 +37,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   },
   width: "375px",
   height: "400px",
+  
 }));
 
 const slides = [
@@ -65,16 +70,19 @@ const slides = [
 
 const steps = [
   {
-    title: "Step 1: Tell us About You",
+    title: "Tell us About You",
     text: "Take five minutes to fill out some simple information about you that will help us make a better diagnosis.",
+    backgroundImageUrl: step1,
   },
   {
-    title: "Step 2: Tell us about your symptoms",
+    title: "Tell us About Your Symptoms",
     text: "Be as specific as you can! After your initial inputs, we'll ask a couple of follow-up questions to get the information we need.",
+    backgroundImageUrl: step2,
   },
   {
-    title: "Step 3: Get a diagnosis and treatment options",
+    title: "Receive Your Diagnosis and Treatment Options",
     text: "From the comfort of your own home, receive a quick diagnosis, as well as links to resources that can help you take the next steps towards recovery.",
+    backgroundImageUrl: step3,
   },
 ];
 
@@ -83,14 +91,14 @@ function EmptyBoxWithButton() {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    margin: "0 auto",
     fontSize: "6rem",
     backgroundColor: "#2493D4",
     color: "white",
-    border: "2px solid black",
-    borderRadius: "5px",
+    //border: "2px solid black",
+    borderRadius: "10px",
     textAlign: "center",
     lineHeight: "6rem",
+    width: "1060px",
   };
 
   const boxStyle = {
@@ -106,7 +114,7 @@ function EmptyBoxWithButton() {
     <div style={{ padding: "40px" }}>
       <Link to="/login" style={{ textDecoration: "none" }}>
         <button style={buttonStyle}>
-          <span style={buttonTextStyle}>      Sign up now!!!      </span>
+          <span style={buttonTextStyle}>      Get started      </span>
         </button>
       </Link>
     </div>
@@ -130,7 +138,21 @@ const Homepage = () => {
           >
             {steps.map((step, index) => (
               <Grid item xs={0} md={4} key={index}>
-                <StyledPaper elevation={3}>
+                <StyledPaper elevation={3}
+                sx={{
+                  padding: theme.spacing(2),
+                  transition: "transform 0.3s",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                  },
+                  width: "375px",
+                  height: "400px",
+                  backgroundImage: `url(${step.backgroundImageUrl})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+                
+                >
                   <Typography
                     variant="h6"
                     component="h2"
