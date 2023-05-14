@@ -43,7 +43,7 @@ const slides = [
   },
   {
     title: "Skip the long waiting times.",
-    text: "Going to the doctor's can feel like it's not worth the effort when you just have a sniffle, or even when it's more serious, life might get in the way. Get your peace of mind now.",
+    text: "If you have a sniffle, the trip to the doctor doesn't feel worth the effort. Gain your peace of mind now.",
     backgroundImageUrl: homeslide2,
   },
   {
