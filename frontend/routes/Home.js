@@ -99,7 +99,7 @@ function EmptyBoxWithButton() {
   };
 
   const buttonTextStyle = {
-    fontSize: "rem2",
+    fontSize: "2rem",
   };
 
   return (
