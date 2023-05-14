@@ -31,8 +31,8 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   "&:hover": {
     transform: "scale(1.05)",
   },
-  width: "475px",
-  height: "300px",
+  width: "375px",
+  height: "400px",
 }));
 
 const slides = [
@@ -80,28 +80,39 @@ const steps = [
 
 function EmptyBoxWithButton() {
   const buttonStyle = {
-    display: "block",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     margin: "0 auto",
     fontSize: "6rem",
-    backgroundColor: "#2493D4", // background color of button, modify later
+    backgroundColor: "#2493D4",
     color: "white",
-    border: "2px solid black", // border around the button
+    border: "2px solid black",
     borderRadius: "5px",
+    textAlign: "center",
+    lineHeight: "6rem",
   };
 
   const boxStyle = {
     padding: "100px",
-    textAlign: "center", // added property to center text
+    textAlign: "center",
+  };
+
+  const buttonTextStyle = {
+    fontSize: "rem",
   };
 
   return (
     <div style={{ padding: "40px" }}>
       <Link to="/login" style={{ textDecoration: "none" }}>
-        <button style={buttonStyle}>Sign up now!!!</button>
+        <button style={buttonStyle}>
+          <span style={buttonTextStyle}>      Sign up now!!!      </span>
+        </button>
       </Link>
     </div>
   );
 }
+
 
 const Homepage = () => {
   return (
@@ -110,11 +121,11 @@ const Homepage = () => {
         <Container>
           <Grid
             container
-            spacing={50}
+            spacing={2}
             sx={{
-              marginTop: "-375px",
-              marginLeft: "-575px",
+              marginTop: "600px",
               marginBottom: "50px",
+              justifyContent: "flex-start",
             }}
           >
             {steps.map((step, index) => (
