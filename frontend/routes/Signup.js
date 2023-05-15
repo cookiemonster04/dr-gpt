@@ -80,7 +80,7 @@ const Signup = ({ user, setUser, themeMode }) => {
           <div className="signupFrm">
             <form className="form" onSubmit={handleSubmit}>
               <div className="title-container">
-                <h1 className="title" style={{ color: "#333" }}>Sign up</h1>
+                <h1 className="title" style={{ color: "#333" }} class="mb-4">Sign up</h1>
                 <FontAwesomeIcon icon={faUserPlus} size="lg" style={{ color: "#333" }}/>
               </div>
               <Item
@@ -88,14 +88,14 @@ const Signup = ({ user, setUser, themeMode }) => {
                 type="text"
                 formValue={username}
                 setFormValue={setUsername}
-                placeholder="a"
+                placeholder=""
               />
               <Item
                 name="password"
                 type="password"
                 formValue={password}
                 setFormValue={setPassword}
-                placeholder="a"
+                placeholder=""
               />
               <label
                 htmlFor="signup_submit"

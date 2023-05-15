@@ -1,6 +1,4 @@
-
-input {
-    width: 350px;
-  }
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
   

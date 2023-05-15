@@ -1,3 +1,4 @@
+/*
 @import url(https://allfont.net/allfont.css?fonts=agency-fb);
 @import url(https://fonts.googleapis.com/css2?family=Inter&display=swap);
 
@@ -30,14 +31,14 @@
     font-size: 1.75rem;
     display: flex;
     align-self: center;
-   /* font-family: 'Inter', sans-serif;*/
+   
    font-family: system-ui, 'Nunito', 'Source Sans Pro', sans-serif;
 }
 
 .nav li {
     display: flex;
     align-items: center;
-    /*font-family: "Agency FB", sans-serif;*/
+    
     font-family: system-ui, 'Nunito', 'Source Sans Pro', sans-serif;
     font-size: 25px;
     font-weight: 400;
@@ -60,3 +61,4 @@
     align-items: center;
     padding: 0.50rem;
 }
+*/
