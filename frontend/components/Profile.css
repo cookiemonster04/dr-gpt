@@ -28,9 +28,7 @@
   max-width: 1200px;
   
   flex-direction: column;
-  align-items: center;
   width: 100%;
-  
   
   font-family: system-ui, Nunito, Source Sans Pro, sans-serif;
 }
@@ -39,6 +37,7 @@
   margin-bottom: 1.5rem;
   animation: fadeIn 2s;
   font-family: system-ui, Nunito, Source Sans Pro, sans-serif;
+  text-align: left;
 }
 
 .card-container {
@@ -48,8 +47,27 @@
   border-radius: 1px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-family: system-ui, Nunito, Source Sans Pro, sans-serif;
+  text-align: left;
+  width: 1100px;
+}
+
+.profile-section-container {
+  display: flex;
+}
+
+.card-container3 {
+  background-color: #dbfaf0;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 1px;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, Nunito, Source Sans Pro, sans-serif;
+  text-align: left;
+  width: 400px;
+  flex: 1;
+  margin-right: 20px;
 }
 
 .card-container2 {
@@ -59,7 +77,8 @@
   border-radius: 1px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: left;
+  width: 600px;
 }
 
 .link {
@@ -97,5 +116,37 @@
 
 .survey {
   margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.survey-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+
+.survey-q {
+  margin-right: 10px;
+}
+
+.survey-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.checkbox {
+  margin-right: 10px; 
+  margin-left: 10px; 
+}
+
+.inputNumber {
+  margin-right: 200px; 
+
+.inputNumber2 {
+  margin-right: 40px; /
 }
 */

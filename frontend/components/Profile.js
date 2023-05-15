@@ -122,21 +122,17 @@ const Profile = ({ userId, user, themeMode }) => {
   return (
     username && (
       <ThemeProvider theme={theme}>
-        <div className={"profile-container"}>
-          <Box alignItems="center" justifyContent="space-between">
-
-          <div className="card-container">
-
-            <Typography
-              variant="h4"
-              marginBottom={2}
-              className="section-header"
-              align="center"
-            >
-              {" "}
-              Welcome back, {username}
-            </Typography>
-
+        <div className="profile-container"> {/* Added class name */}
+          <Box alignItems="left" justifyContent="space-between">
+            <div className="card-container"> {/* Added class name */}
+              <Typography
+                variant="h4"
+                marginBottom={2}
+                className="section-header"
+                align="center"
+              >
+                Welcome back, {username}!
+              </Typography>
             </div>
 
 

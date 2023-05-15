@@ -10,6 +10,10 @@ import homeslide2 from "../../assets/homeslide2.png";
 import homeslide3 from "../../assets/homeslide3.png";
 import homeslide4 from "../../assets/homeslide4.png";
 import homeslide5 from "../../assets/homeslide5.png";
+import step1 from "../../assets/step1.png";
+import step2 from "../../assets/step2.png";
+import step3 from "../../assets/step3.png";
+
 
 const theme = createTheme({
   palette: {
@@ -31,8 +35,9 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   "&:hover": {
     transform: "scale(1.05)",
   },
-  width: "475px",
-  height: "300px",
+  width: "375px",
+  height: "400px",
+  
 }));
 
 const slides = [
@@ -43,7 +48,7 @@ const slides = [
   },
   {
     title: "Skip the long waiting times.",
-    text: "Going to the doctor's can feel like it's not worth the effort when you just have a sniffle, or even when it's more serious, life might get in the way. Get your peace of mind now.",
+    text: "If you have a sniffle, the trip to the doctor doesn't feel worth the effort. Gain your peace of mind now.",
     backgroundImageUrl: homeslide2,
   },
   {
@@ -65,43 +70,57 @@ const slides = [
 
 const steps = [
   {
-    title: "Step 1: Tell us About You",
+    title: "Tell us About You",
     text: "Take five minutes to fill out some simple information about you that will help us make a better diagnosis.",
+    backgroundImageUrl: step1,
   },
   {
-    title: "Step 2: Tell us about your symptoms",
+    title: "Tell us About Your Symptoms",
     text: "Be as specific as you can! After your initial inputs, we'll ask a couple of follow-up questions to get the information we need.",
+    backgroundImageUrl: step2,
   },
   {
-    title: "Step 3: Get a diagnosis and treatment options",
+    title: "Receive Your Diagnosis and Treatment Options",
     text: "From the comfort of your own home, receive a quick diagnosis, as well as links to resources that can help you take the next steps towards recovery.",
+    backgroundImageUrl: step3,
   },
 ];
 
 function EmptyBoxWithButton() {
   const buttonStyle = {
-    display: "block",
-    margin: "0 auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     fontSize: "6rem",
-    backgroundColor: "#2493D4", // background color of button, modify later
+    backgroundColor: "#2493D4",
     color: "white",
-    border: "2px solid black", // border around the button
-    borderRadius: "5px",
+    //border: "2px solid black",
+    borderRadius: "10px",
+    textAlign: "center",
+    lineHeight: "6rem",
+    width: "1060px",
   };
 
   const boxStyle = {
     padding: "100px",
-    textAlign: "center", // added property to center text
+    textAlign: "center",
+  };
+
+  const buttonTextStyle = {
+    fontSize: "2rem",
   };
 
   return (
     <div style={{ padding: "40px" }}>
       <Link to="/login" style={{ textDecoration: "none" }}>
-        <button style={buttonStyle}>Sign up now!!!</button>
+        <button style={buttonStyle}>
+          <span style={buttonTextStyle}>      Get started      </span>
+        </button>
       </Link>
     </div>
   );
 }
+
 
 const Homepage = () => {
   return (
@@ -110,16 +129,30 @@ const Homepage = () => {
         <Container>
           <Grid
             container
-            spacing={50}
+            spacing={2}
             sx={{
-              marginTop: "-375px",
-              marginLeft: "-575px",
+              marginTop: "600px",
               marginBottom: "50px",
+              justifyContent: "flex-start",
             }}
           >
             {steps.map((step, index) => (
               <Grid item xs={0} md={4} key={index}>
-                <StyledPaper elevation={3}>
+                <StyledPaper elevation={3}
+                sx={{
+                  padding: theme.spacing(2),
+                  transition: "transform 0.3s",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                  },
+                  width: "375px",
+                  height: "400px",
+                  backgroundImage: `url(${step.backgroundImageUrl})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+                
+                >
                   <Typography
                     variant="h6"
                     component="h2"
