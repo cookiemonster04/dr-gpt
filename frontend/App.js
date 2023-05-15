@@ -138,9 +138,48 @@ function App() {
                 </>
               }
             /> */}
-          <Route path="/chat" element={<Chat user={user} />} />
-          <Route path="/chat/:chatId" element={<Chat user={user} />} />
-          <Route path="/start" element={<Start user={user} />} />
+          <Route 
+            path="/chat" 
+            element={
+            <>
+            <Navbar
+              getTheme={theme}
+              handleTheme={toggleTheme}
+              user={user}
+            /> 
+            {" "}
+            <Chat user={user} />
+            </>
+            } 
+          />
+          <Route 
+            path="/chat/:chatId" 
+            element={
+              <>
+              <Navbar
+                getTheme={theme}
+                handleTheme={toggleTheme}
+                user={user}
+              /> 
+              {" "}
+              <Chat user={user} />
+              </>
+            } 
+          />
+          <Route 
+            path="/start" 
+            element={
+            <>
+            <Navbar
+              getTheme={theme}
+              handleTheme={toggleTheme}
+              user={user}
+            /> 
+            {" "}
+            <br></br>
+            <Start user={user} />
+            </>
+            } />
         </Routes>
       ) : (
         <div className="container">Loading, please stand by...</div>

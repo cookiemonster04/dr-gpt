@@ -131,7 +131,7 @@ const Homepage = () => {
             container
             spacing={2}
             sx={{
-              marginTop: "600px",
+              marginTop: "50px",
               marginBottom: "50px",
               justifyContent: "flex-start",
             }}
