@@ -112,7 +112,7 @@ function EmptyBoxWithButton() {
 
   return (
     <div style={{ padding: "40px" }}>
-      <Link to="/login" style={{ textDecoration: "none" }}>
+      <Link to="/signup" style={{ textDecoration: "none" }}>
         <button style={buttonStyle}>
           <span style={buttonTextStyle}>      Get started      </span>
         </button>
