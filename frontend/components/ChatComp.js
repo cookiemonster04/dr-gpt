@@ -39,20 +39,27 @@ function Sidebar({
 }) {
   console.log("chatPreviews", chatPreviews);
   return (
+    <>
+    
+    
+    
     <div>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         {/* <Typography variant="h4" noWrap align="center" component="div">
           Chats
         </Typography> */}
         <NavLink to="/" className="site-title">
-          <img
-            src={logo}
-            style={{ marginRight: "10px", width: "60px", height: "60px" }}
-          />
+          <div class="grid gap-4 sm:grid-cols-2">
+            <img
+              src={logo}
+              style={{ marginRight: "10px", width: "60px", height: "60px" }}
+            />
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Vitawise</span>
+          </div>
         </NavLink>
-        <Button variant="contained" onClick={createAppointment}>
+        <button variant="contained" onClick={createAppointment} class="text-gray-800 dark:text-white inline-flex items-center bg-primary-700 hover:bg-blue-200 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
           New Appointment
-        </Button>
+        </button>
       </Toolbar>
       {/* icon up here */}
       <Divider />
@@ -127,6 +134,7 @@ function Sidebar({
         </Typography>
       )}
     </div>
+    </>
   );
 }
 
@@ -190,36 +198,6 @@ export default function ChatComp(props) {
         }}
       >
         <CssBaseline />
-        <AppBar
-          id="appbar"
-          position="fixed"
-          sx={{
-            width: { sm: `calc(100% - ${drawerWidth}px)` },
-            ml: { sm: `${drawerWidth}px` },
-          }}
-        >
-          <Toolbar>
-            {chatContent && (
-              <>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  edge="start"
-                  onClick={handleDrawerToggle}
-                  sx={{ mr: 2, display: { sm: "none" } }}
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Typography variant="h6" noWrap component="div">
-                  {chatContent.users
-                    .filter((cuser) => cuser != user._id.toString())
-                    .map((cuser) => `${map.get(cuser)}`)
-                    .join(", ")}
-                </Typography>
-              </>
-            )}
-          </Toolbar>
-        </AppBar>
         <Box
           component="nav"
           sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
