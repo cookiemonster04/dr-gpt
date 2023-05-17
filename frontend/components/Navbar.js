@@ -24,20 +24,20 @@ export default function Navbar({ handleTheme, getTheme, user }) {
               {user && (
               <>
               <li>
-                <NavLink to="/profile">Profile</NavLink>
+                <NavLink to="/profile" className="dark:text-white" >Profile</NavLink>
               </li>
               <li>
-                <NavLink to="/logout">Logout</NavLink>
+                <NavLink to="/logout" className="dark:text-white">Logout</NavLink>
               </li>
             </>
             )}
             {!user && (
             <>
             <li>
-              <NavLink to="/login">Login</NavLink>
+              <NavLink to="/login" className="dark:text-white">Login</NavLink>
             </li>
             <li>
-              <NavLink to="/signup">Signup</NavLink>
+              <NavLink to="/signup" className="dark:text-white">Signup</NavLink>
             </li>
             </>
             )}
