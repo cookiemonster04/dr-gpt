@@ -47,7 +47,7 @@ app.get("*", (req, res, next) => {
   res.sendFile(path.join(CWD, "index.html"));
 });
 
-const port = process.env.port || 8000;
+const port = process.env.PORT || 8000;
 const server = app.listen(port, (err) => {
   if (err) {
     console.log(err);

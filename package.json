@@ -6,9 +6,11 @@
   "main": "index.html",
   "scripts": {
     "dev": "nodemon",
-    "build": "webpack --config webpack.config.frontend.js && webpack --config webpack.config.backend.js",
+    "build": "webpack --config webpack.config.frontend.js && webpack--config webpack.config.backend.js",
+    "build2": ".\\node_modules\\.bin\\webpack --config webpack.config.frontend.js && .\\node_modules\\.bin\\webpack --config webpack.config.backend.js",
+    "build3": "./node_modules/.bin/webpack --config webpack.config.frontend.js && ./node_modules/.bin/webpack --config webpack.config.backend.js",
     "build:css": "tailwindcss build ./frontend/public/styles.css -o ./public/styles.css",
-    "start": "webpack --config webpack.config.frontend.js && webpack --config webpack.config.backend.js && node ./dev/backend.generated.js"
+    "start": "node ./dev/backend.generated.js"
   },
   "repository": {
     "type": "git",

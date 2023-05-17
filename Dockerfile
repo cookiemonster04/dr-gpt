@@ -1,6 +1,7 @@
 FROM node:18-alpine
-WORKDIR /app
+WORKDIR /site/wwwroot
 COPY . .
-RUN npm install --production
-CMD ["webpack", "--config", "webpack.config.frontend.js", "&&", "webpack", "--config", "webpack.config.backend.js"]
-EXPOSE 8000
+RUN npm install
+RUN npm run build3
+EXPOSE 8080
+CMD npm run start
