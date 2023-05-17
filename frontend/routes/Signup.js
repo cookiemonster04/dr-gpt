@@ -75,7 +75,7 @@ const Signup = ({ user, setUser, themeMode }) => {
 
   };
   return (
-    <div>
+    <div class="min-h-screen">
       <Typography>
         marginTop: 75px
       </Typography>

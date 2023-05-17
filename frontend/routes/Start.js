@@ -32,7 +32,7 @@ const Start = () => {
   };
 
   return (
-    <>
+    <div class="min-h-screen">
       <Typography
         marginTop="75px"
         variant="h4"
@@ -147,7 +147,7 @@ const Start = () => {
       </div>
 
       
-    </>
+    </div>
   );
 };
 

@@ -60,7 +60,7 @@ const Login = ({ user, setUser }) => {
       );
   };
   return (
-    <>
+    <div class="min-h-screen">
       {submitted && <Navigate to="/profile" />}
       <div className="loginFrm">
         <form className="form" onSubmit={handleSubmit}>
@@ -98,7 +98,7 @@ const Login = ({ user, setUser }) => {
           ></input>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

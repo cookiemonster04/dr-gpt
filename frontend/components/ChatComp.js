@@ -145,7 +145,7 @@ export default function ChatComp(props) {
       //     component="nav"
       //     sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
       //   >
-      <div class="flex h-screen bg-blue-100 dark:bg-gray-700"> 
+      <div class="flex min-h-screen bg-blue-100 dark:bg-gray-700"> 
 
         <Sidebar
           map={map}
