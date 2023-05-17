@@ -33,6 +33,12 @@ const Start = () => {
 
   return (
     <>
+      <Typography
+        marginTop="75px"
+        variant="h4"
+        marginBottom={2}
+      >
+      </Typography>
       <div class="w-3/5 mx-auto">
         <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
 

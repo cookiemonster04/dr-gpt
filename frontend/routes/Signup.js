@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import "./Signup.css";
+import { Typography } from "@mui/material";
 
 const Item = ({ name, type, formValue, setFormValue, placeholder }) => {
   return (
@@ -74,7 +75,10 @@ const Signup = ({ user, setUser, themeMode }) => {
 
   };
   return (
-    <>
+    <div>
+      <Typography>
+        marginTop: 75px
+      </Typography>
       {submitted && <Navigate to="/profile" />}
         <ThemeProvider theme={theme}>
           <div className="signupFrm">
@@ -114,7 +118,7 @@ const Signup = ({ user, setUser, themeMode }) => {
             </form>
           </div>
         </ThemeProvider>
-    </>
+    </div>
   );
 }
 
