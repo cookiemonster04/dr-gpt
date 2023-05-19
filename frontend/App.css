@@ -3,11 +3,13 @@
 * {
   border-width: 0;
 }
+*/
 
 html, body, #root, .App {
   height: 100%;
 }
 
+/*
 .dark {
     background-color: #181818;
     color: #fff;
