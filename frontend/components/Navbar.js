@@ -22,24 +22,25 @@ export default function Navbar({ handleTheme, getTheme, user }) {
 
             <div className="flex items-center lg:order-2">
               {user && (
-              <>
-              <li>
-                <NavLink to="/profile" className="dark:text-white" >Profile</NavLink>
-              </li>
-              <li>
-                <NavLink to="/logout" className="dark:text-white">Logout</NavLink>
-              </li>
-            </>
+              <ul class="flex list-none space-x-4">
+                <li class="list-none">
+                  <NavLink to="/profile" className="dark:text-white" >Profile</NavLink>
+                </li>
+                <li class="list-none">
+                  <NavLink to="/logout" className="dark:text-white">Logout</NavLink>
+                </li>
+              </ul>
             )}
             {!user && (
-            <>
-            <li>
-              <NavLink to="/login" className="dark:text-white">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/signup" className="dark:text-white">Signup</NavLink>
-            </li>
-            </>
+            <ul class="flex list-none space-x-4">
+              <li class="list-none">
+                <NavLink to="/login" className="dark:text-white">Login</NavLink>
+                
+              </li>
+              <li class="list-none">
+                <NavLink to="/signup" className="dark:text-white">Signup</NavLink>
+              </li>
+            </ul>
             )}
             </div>
       </div>
