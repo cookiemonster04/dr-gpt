@@ -124,74 +124,15 @@ function EmptyBoxWithButton() {
 
 const Homepage = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <Box>
-        <Container>
-          <Grid
-            container
-            spacing={2}
-            sx={{
-              marginTop: "150px",
-              marginBottom: "50px",
-              justifyContent: "flex-start",
-            }}
-          >
-            {steps.map((step, index) => (
-              <Grid item xs={0} md={4} key={index}>
-                <StyledPaper elevation={3}
-                sx={{
-                  padding: theme.spacing(2),
-                  transition: "transform 0.3s",
-                  "&:hover": {
-                    transform: "scale(1.05)",
-                  },
-                  width: "375px",
-                  height: "400px",
-                  backgroundImage: `url(${step.backgroundImageUrl})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-                
-                >
-                  <Typography
-                    variant="h6"
-                    component="h2"
-                    gutterBottom
-                    sx={{
-                      fontSize: "2rem",
-                      textShadow: "1.2px 1.2px 1.2px #888",
-                      fontFamily:
-                        "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
-                    }}
-                  >
-                    {step.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    gutterBottom
-                    sx={{
-                      fontSize: "1.4rem",
-                      textShadow: "0.5px 0.5px 0.5px #888",
-                      fontFamily:
-                        "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
-                    }}
-                  >
-                    {step.text}
-                  </Typography>
-                </StyledPaper>
-              </Grid>
-            ))}
-          </Grid>
-
-          <EmptyBoxWithButton />
-
-          <Carousel showArrows autoPlay infiniteLoop interval={5000}>
-            {slides.map((slide, index) => (
+    <div className="min-h-screen">
+      
+      {/* <Carousel showArrows autoPlay infiniteLoop interval={5000}>
+             {slides.map((slide, index) => (
               <Box
                 key={index}
                 className="slide-bg"
                 sx={{
-                  height: "70vh",
+                  height: "40vh",
                   display: "flex",
                   alignItems: "center",
                   //justifyContent: 'flex-start', // Change from 'center' to 'flex-start'
@@ -241,10 +182,69 @@ const Homepage = () => {
                 </Paper>
               </Box>
             ))}
-          </Carousel>
-        </Container>
-      </Box>
-    </ThemeProvider>
+          </Carousel> */}
+
+      {/*cards*/}
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          marginTop: "150px",
+          marginBottom: "50px",
+          justifyContent: "flex-start",
+        }}
+      >
+        {steps.map((step, index) => (
+          <Grid item xs={0} md={4} key={index}>
+            <StyledPaper elevation={3}
+            sx={{
+              padding: theme.spacing(2),
+              transition: "transform 0.3s",
+              "&:hover": {
+                transform: "scale(1.05)",
+              },
+              width: "375px",
+              height: "400px",
+              backgroundImage: `url(${step.backgroundImageUrl})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            
+            >
+              <Typography
+                variant="h6"
+                component="h2"
+                gutterBottom
+                sx={{
+                  fontSize: "2rem",
+                  textShadow: "1.2px 1.2px 1.2px #888",
+                  fontFamily:
+                    "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
+                }}
+              >
+                {step.title}
+              </Typography>
+              <Typography
+                variant="body2"
+                gutterBottom
+                sx={{
+                  fontSize: "1.4rem",
+                  textShadow: "0.5px 0.5px 0.5px #888",
+                  fontFamily:
+                    "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
+                }}
+              >
+                {step.text}
+              </Typography>
+            </StyledPaper>
+          </Grid>
+        ))}
+      </Grid>
+
+      <EmptyBoxWithButton />
+
+    </div>
+    
   );
 };
 
