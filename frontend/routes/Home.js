@@ -37,7 +37,6 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   },
   width: "375px",
   height: "400px",
-  
 }));
 
 const slides = [
@@ -114,18 +113,17 @@ function EmptyBoxWithButton() {
     <div style={{ padding: "40px" }}>
       <Link to="/signup" style={{ textDecoration: "none" }}>
         <button style={buttonStyle}>
-          <span style={buttonTextStyle}>      Get started      </span>
+          <span style={buttonTextStyle}> Get started </span>
         </button>
       </Link>
     </div>
   );
 }
 
-
 const Homepage = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Box>
+      <Box sx={{ marginTop: "80px" }}>
         <Container>
           <Grid
             container
@@ -138,20 +136,20 @@ const Homepage = () => {
           >
             {steps.map((step, index) => (
               <Grid item xs={0} md={4} key={index}>
-                <StyledPaper elevation={3}
-                sx={{
-                  padding: theme.spacing(2),
-                  transition: "transform 0.3s",
-                  "&:hover": {
-                    transform: "scale(1.05)",
-                  },
-                  width: "375px",
-                  height: "400px",
-                  backgroundImage: `url(${step.backgroundImageUrl})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-                
+                <StyledPaper
+                  elevation={3}
+                  sx={{
+                    padding: theme.spacing(2),
+                    transition: "transform 0.3s",
+                    "&:hover": {
+                      transform: "scale(1.05)",
+                    },
+                    width: "375px",
+                    height: "400px",
+                    backgroundImage: `url(${step.backgroundImageUrl})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
                 >
                   <Typography
                     variant="h6"

@@ -9,6 +9,7 @@ import Login from "./routes/Login";
 import Logout from "./routes/Logout";
 import Chat from "./routes/Chat";
 import Start from "./routes/Start";
+import Verify from "./routes/Verify";
 import "./App.css";
 
 function App() {
@@ -180,6 +181,7 @@ function App() {
             <Start user={user} />
             </>
             } />
+          <Route path="/verify/:verifyToken" element={<Verify />}/>
         </Routes>
       ) : (
         <div className="container">Loading, please stand by...</div>

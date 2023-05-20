@@ -18,6 +18,7 @@ import {
   getChats,
 } from "./handlers/chatHandler.js";
 import { init_io } from "./socket.js";
+import { verifyEnd, sendVerifyEnd } from "./handlers/verifyHandler.js";
 
 connectDB();
 dotenv.config({ path: "backend/config.env" });
@@ -41,6 +42,9 @@ app.post("/api/message", auth, createGPTChat);
 app.get("/api/chat/create", auth, createChat);
 app.get("/api/c/:chatId", auth, getChatContent);
 app.get("/api/chats", auth, getChats);
+
+app.get("/api/verify/:token", verifyEnd);
+app.post("/api/send", sendVerifyEnd);
 
 app.get("*", (req, res, next) => {
   console.log("Request received");

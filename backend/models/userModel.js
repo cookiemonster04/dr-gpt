@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import jwt from "jsonwebtoken";
+import uniqueValidator from "mongoose-unique-validator";
 const model_name = "User";
 
 const passwordCheck = (password) => {
@@ -35,6 +36,12 @@ const messageGenerator = (errors) => {
   } else {
     return errors.join("\n");
   }
+};
+
+// Reference: https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax
+var validateEmail = function (email) {
+  var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return re.test(email);
 };
 
 const userSchema = new Schema({
@@ -87,7 +94,21 @@ const userSchema = new Schema({
   //   famHist: String,
   // },
   dataArray: [String],
+  email: {
+    type: String,
+    trim: true,
+    lowercase: true,
+    unique: true,
+    required: "Email address is required",
+    validate: [validateEmail, "Please fill a valid email address"],
+    match: [
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      "Please fill a valid email address",
+    ],
+  },
+  verified: Boolean,
 });
+userSchema.plugin(uniqueValidator);
 
 userSchema.methods.generateJWT = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET);

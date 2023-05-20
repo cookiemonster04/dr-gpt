@@ -24,6 +24,12 @@ const login = catchWrap(
   async (req, res, next) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username: username }).exec();
+    if (!user.verified) {
+      res.status(403).json({
+        message: "Unverified"
+      });
+      return;
+    }
     if (user.password === password) {
       sendToken(user, 200, res);
       res.json({

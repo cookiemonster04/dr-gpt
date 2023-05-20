@@ -1,5 +1,6 @@
 import User from "../models/userModel";
 import { catchWrap } from "../middleware/errorHandler";
+import { sendVerify } from "./verifyHandler";
 
 const getUser = catchWrap(
   async (req, res, next) => {
@@ -17,15 +18,17 @@ const getUser = catchWrap(
   // "Login to access profile"
 );
 const setUser = catchWrap(async (req, res, next) => {
-  const { username, password } = req.body;
+  const { email, username, password } = req.body;
   const newUser = new User({
+    email: email,
     username: username,
     password: password,
   });
   await newUser.save();
+  await sendVerify(newUser, username, email);
   res.status(200).json({
     message: "Success",
-    user: newUser,
+    // user: newUser,
   });
 });
 const editUser = catchWrap(
