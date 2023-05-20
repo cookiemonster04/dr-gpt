@@ -1,24 +1,23 @@
 // Reference: https://www.geeksforgeeks.org/email-verification/#
 import nodemailer from "nodemailer";
 import jwt from "jsonwebtoken";
-import secret from "../secret";
 import User from "../models/userModel";
 import { catchWrap } from "../middleware/errorHandler";
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: secret.email,
-    pass: secret.password,
+    user: process.env.VERIFY_EMAIL,
+    pass: process.env.VERIFY_PASSWORD,
   },
 });
 
 const genToken = (data) =>
-  jwt.sign({ data: data }, secret.verify_secret, { expiresIn: "30m" });
+  jwt.sign({ data: data }, process.env.VERIFY_SECRET, { expiresIn: "30m" });
 
 const mailConfigurations = (username, email, token) => ({
   // It should be a string of sender/server email
-  from: secret.email,
+  from: process.env.VERIFY_EMAIL,
 
   to: email,
 
@@ -58,7 +57,7 @@ const sendVerifyEnd = catchWrap(async (req, res, next) => {
 
 const verify = async (token) => {
   console.log(token);
-  const data = jwt.verify(token, secret.verify_secret);
+  const data = jwt.verify(token, process.env.VERIFY_SECRET);
   console.log(data);
   const user = await User.findById(data.data);
   console.log(user);
