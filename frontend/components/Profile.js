@@ -126,7 +126,7 @@ const Profile = ({ userId, user, themeMode }) => {
           <Box alignItems="left" justifyContent="space-between">
             <div className="card-container"> 
               <Typography
-                marginTop="75px"
+                marginTop="90px"
                 variant="h4"
                 marginBottom={2}
                 className="dark:text-white"
