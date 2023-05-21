@@ -108,7 +108,7 @@ const userSchema = new Schema({
   },
   verified: Boolean,
 });
-userSchema.plugin(uniqueValidator);
+userSchema.plugin(uniqueValidator, { message: "Sorry, {PATH} is already taken by another user."});
 
 userSchema.methods.generateJWT = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET);
