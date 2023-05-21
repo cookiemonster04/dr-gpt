@@ -54,7 +54,7 @@ const Signup = ({ user, setUser, themeMode }) => {
         console.log(response);
         setIsError(false);
         // setUser(response.data.user);
-        setSubmitted(true);
+        setMessage("Signup successful! A verification email was sent to your account. You can close this page.");
       })
       .catch(function (error) {
         if (error.response.message == "Network Error") {
@@ -79,11 +79,6 @@ const Signup = ({ user, setUser, themeMode }) => {
       <Typography>marginTop: 75px</Typography>
       {/* {submitted && <Navigate to="/profile" />} */}
       <ThemeProvider theme={theme}>
-        {submitted && (
-          <div className="bg-lime-400">
-            Signup successful! A verification email was sent to your account.
-          </div>
-        )}
         <div className="signupFrm">
           <form className="form" onSubmit={handleSubmit}>
             <div className="title-container">

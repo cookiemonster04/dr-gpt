@@ -287,6 +287,9 @@ const genAnswer = catchWrapGenAnswer(async (chatId, messageCallback) => {
     }
   );
   console.log(response);
+  if (response.data.error) {
+    console.log("Error", response.data.error);
+  }
   const rmsg = response.data.choices[0].message.content;
   const rmsgobj = { sender_id: "GPT", message: rmsg, sentTime: getTime() };
   messageCallback(chatId, rmsgobj);

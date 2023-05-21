@@ -51,7 +51,7 @@ let io = null;
 const init_io = (server) => {
   io = new Server(server, {
     cors: {
-      origin: "http://localhost:8000",
+      origin: `http://localhost:${process.env.PORT}`,
     },
   });
   io.on("connection", (socket) => {
