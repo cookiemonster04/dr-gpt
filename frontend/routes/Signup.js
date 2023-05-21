@@ -42,38 +42,37 @@ const Signup = ({ user, setUser, themeMode }) => {
   const [isError, setIsError] = useState(false);
   const [messages, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    await axios
+    axios
       .post("/api/user", {
         email: email,
         username: username,
         password: password,
       })
-      .then(
-        (response) => {
-          setIsError(false);
-          // setUser(response.data.user);
-          setSubmitted(true);
-        },
-        (error) => {
-          if (error.response.message == "Network Error") {
-            setIsError(true);
-            setMessage("Something went wrong, please try again in a moment");
-            return;
-          }
+      .then(function (response) {
+        console.log(response);
+        setIsError(false);
+        // setUser(response.data.user);
+        setSubmitted(true);
+      })
+      .catch(function (error) {
+        if (error.response.message == "Network Error") {
           setIsError(true);
-          setMessage(error.response.data);
+          setMessage("Something went wrong, please try again in a moment");
+          return;
         }
-      );
-    try {
-      axios.post("api/login", {
-        username: username,
-        password: password,
+        setIsError(true);
+        setMessage(error.response.data);
       });
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   axios.post("api/login", {
+    //     username: username,
+    //     password: password,
+    //   });
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
   return (
     <div class="min-h-screen">

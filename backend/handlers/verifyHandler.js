@@ -4,14 +4,6 @@ import jwt from "jsonwebtoken";
 import User from "../models/userModel";
 import { catchWrap } from "../middleware/errorHandler";
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.VERIFY_EMAIL,
-    pass: process.env.VERIFY_PASSWORD,
-  },
-});
-
 const genToken = (data) =>
   jwt.sign({ data: data }, process.env.VERIFY_SECRET, { expiresIn: "30m" });
 
@@ -37,7 +29,15 @@ The Vitawise Team`,
 
 const sendVerify = async (user, username, email) => {
   const token = genToken(user._id.toString());
-  await user.save({ validateBeforeSave: false });
+  console.log(process.env.VERIFY_EMAIL, process.env.VERIFY_PASSWORD, process.env.VERIFY_SECRET);
+  console.log(typeof process.env.VERIFY_EMAIL, typeof process.env.VERIFY_PASSWORD, typeof process.env.VERIFY_SECRET);
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.VERIFY_EMAIL,
+      pass: process.env.VERIFY_PASSWORD,
+    },
+  });
   transporter.sendMail(
     mailConfigurations(username, email, token),
     function (error, info) {
@@ -51,6 +51,7 @@ const sendVerify = async (user, username, email) => {
 const sendVerifyEnd = catchWrap(async (req, res, next) => {
   const { username, email } = req.body;
   const user = await User.find({ username: username, email: email });
+  console.log("Username:", username, "Email:", email);
   await sendVerify(user, username, email);
   res.status(200);
 });

@@ -24,6 +24,7 @@ const setUser = catchWrap(async (req, res, next) => {
     username: username,
     password: password,
   });
+  console.log("Email:", email, "Username:", username, "Password:", password);
   await newUser.save();
   await sendVerify(newUser, username, email);
   res.status(200).json({
