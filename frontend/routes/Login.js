@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import "./Login.css";
@@ -49,13 +49,14 @@ const Login = ({ user, setUser }) => {
           setUser(response.data.user);
         },
         (error) => {
-          if (error.response.message == "Network Error") {
+          console.log(error);
+          if (error.response.data.message == "Network Error") {
             setIsError(true);
             setMessage("Something went wrong, please try again in a moment");
             return;
           }
           setIsError(true);
-          setMessage(error.response.data);
+          setMessage(error.response.data.message);
         }
       );
   };
@@ -86,7 +87,7 @@ const Login = ({ user, setUser }) => {
             htmlFor="login_submit"
             className={isError ? "no-msg" : "yes-msg"}
           >
-            {messages.split("\n").map((msg, idx) => {
+            {messages === "Unverified" ? <div>Sorry, your account is unverified. <NavLink to="/resend">Resend</NavLink> verification email? </div>: messages.split("\n").map((msg, idx) => {
               return <div key={`login_msg_${idx}`}>{msg}</div>;
             })}
           </label>

@@ -10,6 +10,7 @@ import Logout from "./routes/Logout";
 import Chat from "./routes/Chat";
 import Start from "./routes/Start";
 import Verify from "./routes/Verify";
+import Resend from "./routes/Resend";
 import "./App.css";
 
 function App() {
@@ -139,49 +140,48 @@ function App() {
                 </>
               }
             /> */}
-          <Route 
-            path="/chat" 
-            element={
-            <>
-            <Navbar
-              getTheme={theme}
-              handleTheme={toggleTheme}
-              user={user}
-            /> 
-            {" "}
-            <Chat user={user} />
-            </>
-            } 
-          />
-          <Route 
-            path="/chat/:chatId" 
+          <Route
+            path="/chat"
             element={
               <>
-              <Navbar
-                getTheme={theme}
-                handleTheme={toggleTheme}
-                user={user}
-              /> 
-              {" "}
-              <Chat user={user} />
+                <Navbar
+                  getTheme={theme}
+                  handleTheme={toggleTheme}
+                  user={user}
+                />{" "}
+                <Chat user={user} />
               </>
-            } 
+            }
           />
-          <Route 
-            path="/start" 
+          <Route
+            path="/chat/:chatId"
             element={
-            <>
-            <Navbar
-              getTheme={theme}
-              handleTheme={toggleTheme}
-              user={user}
-            /> 
-            {" "}
-            <br></br>
-            <Start user={user} />
-            </>
-            } />
-          <Route path="/verify/:verifyToken" element={<Verify />}/>
+              <>
+                <Navbar
+                  getTheme={theme}
+                  handleTheme={toggleTheme}
+                  user={user}
+                />{" "}
+                <Chat user={user} />
+              </>
+            }
+          />
+          <Route
+            path="/start"
+            element={
+              <>
+                <Navbar
+                  getTheme={theme}
+                  handleTheme={toggleTheme}
+                  user={user}
+                />{" "}
+                <br></br>
+                <Start user={user} />
+              </>
+            }
+          />
+          <Route path="/verify/:verifyToken" element={<Verify />} />
+          <Route path="/resend" element={<Resend />} />
         </Routes>
       ) : (
         <div className="container">Loading, please stand by...</div>

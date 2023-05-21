@@ -29,7 +29,6 @@ const setUser = catchWrap(async (req, res, next) => {
   await sendVerify(newUser, username, email);
   res.status(200).json({
     message: "Success",
-    // user: newUser,
   });
 });
 const editUser = catchWrap(

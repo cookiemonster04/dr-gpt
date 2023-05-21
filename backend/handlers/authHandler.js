@@ -24,24 +24,26 @@ const login = catchWrap(
   async (req, res, next) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username: username }).exec();
-    if (!user.verified) {
-      res.status(403).json({
-        message: "Unverified"
-      });
-      return;
-    }
     if (user.password === password) {
+      if (!user.verified) {
+        res.status(403).json({
+          message: "Unverified",
+        });
+        return;
+      }
       sendToken(user, 200, res);
       res.json({
         message: "Login successful",
         user: user,
       });
     } else {
-      throw new Error();
+      res.status(401).json({
+        message: "Incorrect username or password",
+      });
     }
   },
-  401,
-  "Incorrect username or password"
+  500,
+  "Internal server error"
 );
 const logout = async (req, res, next) => {
   res.status(200).clearCookie("token").end();

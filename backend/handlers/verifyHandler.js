@@ -49,10 +49,10 @@ const sendVerify = async (user, username, email) => {
 };
 
 const sendVerifyEnd = catchWrap(async (req, res, next) => {
-  const { username, email } = req.body;
-  const user = await User.find({ username: username, email: email });
-  console.log("Username:", username, "Email:", email);
-  await sendVerify(user, username, email);
+  const { email } = req.body;
+  const user = await User.findOne({ email: email });
+  console.log(user);
+  await sendVerify(user, user.username, email);
   res.status(200);
 });
 
