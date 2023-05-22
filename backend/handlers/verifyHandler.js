@@ -3,9 +3,12 @@ import nodemailer from "nodemailer";
 import jwt from "jsonwebtoken";
 import User from "../models/userModel";
 import { catchWrap } from "../middleware/errorHandler";
+import getTime from "./timeHandler";
 
 const genToken = (data) =>
-  jwt.sign({ data: data }, process.env.VERIFY_SECRET, { expiresIn: "30m" });
+  jwt.sign({ data: data, time: getTime() }, process.env.VERIFY_SECRET, {
+    expiresIn: "30m",
+  });
 
 const mailConfigurations = (username, email, token) => ({
   // It should be a string of sender/server email
@@ -29,8 +32,16 @@ The Vitawise Team`,
 
 const sendVerify = async (user, username, email) => {
   const token = genToken(user._id.toString());
-  console.log(process.env.VERIFY_EMAIL, process.env.VERIFY_PASSWORD, process.env.VERIFY_SECRET);
-  console.log(typeof process.env.VERIFY_EMAIL, typeof process.env.VERIFY_PASSWORD, typeof process.env.VERIFY_SECRET);
+  console.log(
+    process.env.VERIFY_EMAIL,
+    process.env.VERIFY_PASSWORD,
+    process.env.VERIFY_SECRET
+  );
+  console.log(
+    typeof process.env.VERIFY_EMAIL,
+    typeof process.env.VERIFY_PASSWORD,
+    typeof process.env.VERIFY_SECRET
+  );
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -72,10 +83,14 @@ const verify = async (token) => {
   return true;
 };
 
-const verifyEnd = catchWrap(async (req, res, next) => {
-  console.log(req);
-  const status = await verify(req.params.token);
-  res.status(status ? 200 : 400).end();
-});
+const verifyEnd = catchWrap(
+  async (req, res, next) => {
+    console.log(req);
+    await verify(req.params.token);
+    res.status(200).end();
+  },
+  400,
+  "Expired token"
+);
 
 export { verifyEnd, sendVerify, sendVerifyEnd };

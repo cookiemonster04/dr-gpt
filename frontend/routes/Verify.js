@@ -7,18 +7,18 @@ const Verify = () => {
   const [loading, setLoading] = useState(true);
   const [success, setSuccess] = useState(false);
   useEffect(() => {
-    const body = async () => {
+    const body = () => {
       if (verifyToken) {
         console.log("request sent");
-        const resp = await axios.get(`/api/verify/${verifyToken}`);
-        console.log("verify resp", resp);
-        setLoading(false);
-        if (resp.status === 200) {
-          setSuccess(true);
-        } else {
-          setSuccess(false);
-          console.log(resp);
-        }
+        axios.get(`/api/verify/${verifyToken}`).then((response) => {
+            setLoading(false);
+            setSuccess(true);
+            console.log(resp);
+        }, (error) => {
+            setLoading(false);
+            setSuccess(false);
+            console.log(error);
+        });
       }
     };
     body();
