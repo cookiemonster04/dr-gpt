@@ -87,7 +87,7 @@ const Login = ({ user, setUser }) => {
             htmlFor="login_submit"
             className={isError ? "no-msg" : "yes-msg"}
           >
-            {messages === "Unverified" ? <div>Sorry, your account is unverified. <NavLink to="/resend">Resend</NavLink> verification email? </div>: messages.split("\n").map((msg, idx) => {
+            {messages === "Unverified" ? <div>Sorry, your account is unverified. <NavLink to="/resend" className="underline ">Resend</NavLink> verification email? </div>: messages.split("\n").map((msg, idx) => {
               return <div key={`login_msg_${idx}`}>{msg}</div>;
             })}
           </label>

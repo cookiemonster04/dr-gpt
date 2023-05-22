@@ -63,7 +63,6 @@ const Signup = ({ user, setUser, themeMode }) => {
   };
   return (
     <div class="min-h-screen">
-      <Typography>marginTop: 75px</Typography>
       {/* {submitted && <Navigate to="/profile" />} */}
       <ThemeProvider theme={theme}>
         {submitted && (
