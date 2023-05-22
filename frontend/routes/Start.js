@@ -139,14 +139,10 @@ const Start = () => {
 
             <br></br>
           </form>
-
           
-          
-
         </div>
       </div>
-
-      
+      <div class="h-16"></div>
     </div>
   );
 };

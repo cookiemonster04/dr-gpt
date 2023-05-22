@@ -126,6 +126,7 @@ const Profile = ({ userId, user, themeMode }) => {
           <Box alignItems="left" justifyContent="space-between">
             <div className="card-container"> 
               <Typography
+                paddingTop="40px"
                 marginTop="90px"
                 variant="h4"
                 marginBottom={2}
@@ -137,7 +138,7 @@ const Profile = ({ userId, user, themeMode }) => {
             </div>
 
 
-            <div class="w-3/5 mx-auto">
+            <div class="w-3/5 mx-auto pb-40">
               <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
 
                 <form onSubmit={handleSubmit}>
