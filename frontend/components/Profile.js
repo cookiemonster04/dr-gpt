@@ -127,7 +127,7 @@ const Profile = ({ userId, user, themeMode }) => {
             <div className="card-container"> 
               <Typography
                 paddingTop="40px"
-                marginTop="90px"
+                marginTop="80px"
                 variant="h4"
                 marginBottom={2}
                 className="dark:text-white"
@@ -138,7 +138,7 @@ const Profile = ({ userId, user, themeMode }) => {
             </div>
 
 
-            <div class="w-3/5 mx-auto pb-40">
+            <div class="w-3/5 mx-auto pb-40 mt-20">
               <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
 
                 <form onSubmit={handleSubmit}>
@@ -323,28 +323,30 @@ const Profile = ({ userId, user, themeMode }) => {
 
                     <div>
                       <label for="smoke" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Have you smoked in the last 2 months?</label>
-                      <input 
-                        type="checkbox" 
+                      <select 
                         name="smoke" 
                         id="smoke"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         value={smoke} 
                         onChange={(event) => setSmoke(event.target.value)}
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
-                        placeholder="" 
-                        required=""/>
+                        >
+                        <option selected="yes">No</option>
+                        <option value="no">Yes</option>
+                      </select>
                     </div>
 
                     <div>
                       <label for="smoke" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Have you consumed alcohol in the past 2 months?</label>
-                      <input 
-                        type="checkbox" 
+                      <select 
+                        id="alcohol" 
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-1/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         name="alcohol" 
-                        id="alcohol"
                         value={alcohol} 
                         onChange={(event) => setAlcohol(event.target.value)}
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
-                        placeholder="" 
-                        required=""/>
+                        >
+                        <option selected="no">No</option>
+                        <option value="yes">Yes</option>
+                      </select>
                     </div>
 
                     <div>
@@ -374,8 +376,6 @@ const Profile = ({ userId, user, themeMode }) => {
                     </div>
 
                   </div>
-
-                  
 
                   <div>
                     <button 
