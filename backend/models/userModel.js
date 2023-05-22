@@ -24,7 +24,7 @@ const passwordCheck = (password) => {
   if (password.search(/[0-9]/) == -1) {
     errors.push("Password must contain at least one digit");
   }
-  if (password.search(/[@$!%*#?&]/) == -1) {
+  if (password.search(/[@$!%^*#?&~]/) == -1) {
     errors.push("Password must contain at least one special character");
   }
   return errors;
