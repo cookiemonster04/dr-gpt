@@ -1,9 +1,8 @@
 // user management with socket
 // Reference: https://github.com/jigar-sable/instagram-mern
 
-import { Server } from "socket.io";
 import Chat from "./models/chatModel.js";
-import {genAnswer} from "./handlers/chatHandler.js";
+import { genAnswer } from "./handlers/chatHandler.js";
 import getTime from "./handlers/timeHandler.js";
 
 let users = [];
@@ -49,8 +48,8 @@ const pushMessage = (chat) => async (chatId, message) => {
 
 let io = null;
 const init_io = (server) => {
-  io = new Server(server, {
-    origins: ['http://localhost:*', "https://vitawise.org:*"],
+  io = require("socket.io")(server, {
+      origins: [`http://localhost:${process.env.PORT}`, "https://vitawise.org:*"],
   });
   io.on("connection", (socket) => {
     console.log("connecting socket...");
