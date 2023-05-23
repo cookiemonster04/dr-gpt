@@ -4,7 +4,6 @@
 import Chat from "./models/chatModel.js";
 import { genAnswer } from "./handlers/chatHandler.js";
 import getTime from "./handlers/timeHandler.js";
-
 let users = [];
 const addUser = (userId, socketId) => {
   !users.some((user) => user.userId === userId && user.socketId === socketId) &&
@@ -49,7 +48,10 @@ const pushMessage = (chat) => async (chatId, message) => {
 let io = null;
 const init_io = (server) => {
   io = require("socket.io")(server, {
-      origins: [`http://localhost:${process.env.PORT}`, "https://vitawise.org:*"],
+      // origins: [`http://localhost:${process.env.PORT}`, "https://vitawise.org:*"],
+      cors: {
+        origin: process.env.NODE_ENV === "production" ? false : [`http://localhost:${process.env.PORT}`],
+      }
   });
   io.on("connection", (socket) => {
     console.log("connecting socket...");
