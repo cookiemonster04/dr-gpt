@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import "./Signup.css";
+import { Typography } from "@mui/material";
 
 const Item = ({ name, type, formValue, setFormValue, placeholder }) => {
   return (
@@ -74,13 +75,16 @@ const Signup = ({ user, setUser, themeMode }) => {
 
   };
   return (
-    <>
+    <div class="min-h-screen">
+      <Typography>
+        marginTop: 75px
+      </Typography>
       {submitted && <Navigate to="/profile" />}
         <ThemeProvider theme={theme}>
           <div className="signupFrm">
             <form className="form" onSubmit={handleSubmit}>
               <div className="title-container">
-                <h1 className="title" style={{ color: "#333" }}>Sign up</h1>
+                <h1 className="title" style={{ color: "#333" }} class="mb-4">Sign up</h1>
                 <FontAwesomeIcon icon={faUserPlus} size="lg" style={{ color: "#333" }}/>
               </div>
               <Item
@@ -88,14 +92,14 @@ const Signup = ({ user, setUser, themeMode }) => {
                 type="text"
                 formValue={username}
                 setFormValue={setUsername}
-                placeholder="a"
+                placeholder=""
               />
               <Item
                 name="password"
                 type="password"
                 formValue={password}
                 setFormValue={setPassword}
-                placeholder="a"
+                placeholder=""
               />
               <label
                 htmlFor="signup_submit"
@@ -114,7 +118,7 @@ const Signup = ({ user, setUser, themeMode }) => {
             </form>
           </div>
         </ThemeProvider>
-    </>
+    </div>
   );
 }
 

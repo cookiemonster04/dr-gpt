@@ -60,12 +60,12 @@ const Login = ({ user, setUser }) => {
       );
   };
   return (
-    <>
+    <div class="min-h-screen">
       {submitted && <Navigate to="/profile" />}
       <div className="loginFrm">
         <form className="form" onSubmit={handleSubmit}>
           <div className="title-container">
-            <h1 className="title" style={{ color: "#333" }}>Log in</h1>
+            <h1 className="title" style={{ color: "#333" }} class="mb-4">Log in</h1>
             <FontAwesomeIcon icon={faUserPlus} size="lg" style={{ color: "#333" }}/>
           </div>
           <Item
@@ -73,14 +73,14 @@ const Login = ({ user, setUser }) => {
             type="text"
             formValue={username}
             setFormValue={setUsername}
-            placeholder="a"
+            placeholder=""
           />
           <Item
             name="password"
             type="password"
             formValue={password}
             setFormValue={setPassword}
-            placeholder="a"
+            placeholder=""
           />
           <label
             htmlFor="login_submit"
@@ -98,7 +98,7 @@ const Login = ({ user, setUser }) => {
           ></input>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

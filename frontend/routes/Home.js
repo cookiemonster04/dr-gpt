@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Box, Typography, Container, Grid, Paper } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
@@ -9,6 +10,10 @@ import homeslide2 from "../../assets/homeslide2.png";
 import homeslide3 from "../../assets/homeslide3.png";
 import homeslide4 from "../../assets/homeslide4.png";
 import homeslide5 from "../../assets/homeslide5.png";
+import step1 from "../../assets/step1.png";
+import step2 from "../../assets/step2.png";
+import step3 from "../../assets/step3.png";
+
 
 const theme = createTheme({
   palette: {
@@ -20,7 +25,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Agency FB, sans-serif",
+    fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
   },
 });
 
@@ -30,8 +35,8 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   "&:hover": {
     transform: "scale(1.05)",
   },
-  width: "475px",
-  height: "300px",
+  width: "375px",
+  height: "400px",
 }));
 
 const slides = [
@@ -42,7 +47,7 @@ const slides = [
   },
   {
     title: "Skip the long waiting times.",
-    text: "Going to the doctor's can feel like it's not worth the effort when you just have a sniffle, or even when it's more serious, life might get in the way. Get your peace of mind now.",
+    text: "If you have a sniffle, the trip to the doctor doesn't feel worth the effort. Gain your peace of mind now.",
     backgroundImageUrl: homeslide2,
   },
   {
@@ -59,91 +64,93 @@ const slides = [
     title: "Affordability.",
     text: "We know that not everyone has well-covering insurance or deep pockets. We have you covered. With the standard model free to use, we're accessible to all.",
     backgroundImageUrl: homeslide5,
-  }
+  },
 ];
 
 const steps = [
   {
-    title: "Step 1: Tell us About You",
+    title: "Tell us About You",
     text: "Take five minutes to fill out some simple information about you that will help us make a better diagnosis.",
+    backgroundImageUrl: step1,
   },
   {
-    title: "Step 2: Tell us about your symptoms",
+    title: "Tell us About Your Symptoms",
     text: "Be as specific as you can! After your initial inputs, we'll ask a couple of follow-up questions to get the information we need.",
+    backgroundImageUrl: step2,
   },
   {
-    title: "Step 3: Get a diagnosis and treatment options",
+    title: "Receive Your Diagnosis and Treatment Options",
     text: "From the comfort of your own home, receive a quick diagnosis, as well as links to resources that can help you take the next steps towards recovery.",
+    backgroundImageUrl: step3,
   },
 ];
+
+function EmptyBoxWithButton() {
+  const buttonStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "6rem",
+    backgroundColor: "#2493D4",
+    color: "white",
+    //border: "2px solid black",
+    borderRadius: "10px",
+    textAlign: "center",
+    lineHeight: "6rem",
+    width: "1060px",
+  };
+
+  const boxStyle = {
+    padding: "100px",
+    textAlign: "center",
+  };
+
+  const buttonTextStyle = {
+    fontSize: "2rem",
+  };
+
+  return (
+    <div style={{ padding: "40px" }}>
+      <Link to="/signup" style={{ textDecoration: "none" }}>
+        <button style={buttonStyle}>
+          <span style={buttonTextStyle}> Get started </span>
+        </button>
+      </Link>
+    </div>
+  );
+}
 
 const Homepage = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Box>
-        <Carousel showArrows autoPlay infiniteLoop interval={5000}>
-          {slides.map((slide, index) => (
-            <Box
-              key={index}
-              className="slide-bg"
-              sx={{
-                height: "70vh",
-                display: "flex",
-                alignItems: "center",
-                //justifyContent: 'flex-start', // Change from 'center' to 'flex-start'
-                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url(${slide.backgroundImageUrl})`,
-                backgroundSize: "cover", // Add this line to resize the background image according to the screen size
-                backgroundPosition: "center", // Add this line to keep the background image centered
-              }}
-            >
-              <Paper
-                elevation={6}
-                sx={{
-                  maxWidth: "35%",
-                  padding: 4,
-                  marginLeft: 10, // Add this line to provide some left margin
-                  backgroundColor: "rgba(255, 255, 255, 0.9)",
-                  borderRadius: 2,
-                  boxShadow:
-                    "0 12px 30px rgba(0, 0, 0, 0.4), 0 10px 12px rgba(0, 0, 0, 0.6)",
-                }}
-              >
-                <Typography
-                  variant="h4"
-                  component="h1"
-                  gutterBottom
-                  sx={{
-                    fontSize: "3.5rem",
-                    textShadow: "1.8px 1.8px 4px #888",
-                    fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
-                  }}
-                >
-                  {slide.title}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  gutterBottom
-                  sx={{
-                    fontSize: "1.7rem",
-                    textShadow: "0.5px 0.5px 0.5px #888",
-                    fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
-                  }}
-                >
-                  {slide.text}
-                </Typography>
-              </Paper>
-            </Box>
-          ))}
-        </Carousel>
+      <Box sx={{ marginTop: "80px" }}>
         <Container>
           <Grid
             container
-            spacing={50}
-            sx={{ marginTop: "-375px", marginLeft: "-575px" }}
+            spacing={2}
+            sx={{
+              marginTop: "75px",
+              marginBottom: "50px",
+              justifyContent: "flex-start",
+            }}
           >
             {steps.map((step, index) => (
               <Grid item xs={0} md={4} key={index}>
-                <StyledPaper elevation={3}>
+                <StyledPaper
+                  elevation={3}
+                  sx={{
+                    padding: theme.spacing(2),
+                    transition: "transform 0.3s",
+                    "&:hover": {
+                      transform: "scale(1.05)",
+                    },
+                    width: "375px",
+                    height: "400px",
+                    backgroundImage: `url(${step.backgroundImageUrl})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
                   <Typography
                     variant="h6"
                     component="h2"
@@ -151,7 +158,8 @@ const Homepage = () => {
                     sx={{
                       fontSize: "2rem",
                       textShadow: "1.2px 1.2px 1.2px #888",
-                      fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
+                      fontFamily:
+                        "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
                     }}
                   >
                     {step.title}
@@ -162,7 +170,8 @@ const Homepage = () => {
                     sx={{
                       fontSize: "1.4rem",
                       textShadow: "0.5px 0.5px 0.5px #888",
-                      fontFamily: "system-ui, 'Nunito', 'Source Sans Pro', sans-serif"
+                      fontFamily:
+                        "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
                     }}
                   >
                     {step.text}
@@ -171,6 +180,66 @@ const Homepage = () => {
               </Grid>
             ))}
           </Grid>
+
+          <EmptyBoxWithButton />
+
+          <Carousel showArrows autoPlay infiniteLoop interval={5000}>
+            {slides.map((slide, index) => (
+              <Box
+                key={index}
+                className="slide-bg"
+                sx={{
+                  height: "70vh",
+                  display: "flex",
+                  alignItems: "center",
+                  //justifyContent: 'flex-start', // Change from 'center' to 'flex-start'
+                  backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url(${slide.backgroundImageUrl})`,
+                  backgroundSize: "cover", // Add this line to resize the background image according to the screen size
+                  backgroundPosition: "center", // Add this line to keep the background image centered
+                }}
+              >
+                <Paper
+                  elevation={6}
+                  sx={{
+                    maxWidth: "35%",
+                    padding: 4,
+                    alignItems: "center",
+                    marginLeft: 10, // Add this line to provide some left margin
+                    backgroundColor: "rgba(255, 255, 255, 0.9)",
+                    borderRadius: 2,
+                    boxShadow:
+                      "0 12px 30px rgba(0, 0, 0, 0.4), 0 10px 12px rgba(0, 0, 0, 0.6)",
+                  }}
+                >
+                  <Typography
+                    variant="h4"
+                    component="h1"
+                    gutterBottom
+                    sx={{
+                      fontSize: "3.5rem",
+                      textShadow: "1.8px 1.8px 4px #888",
+                      fontFamily:
+                        "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
+                    }}
+                  >
+                    {slide.title}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    gutterBottom
+                    sx={{
+                      fontSize: "1.7rem",
+                      textShadow: "0.5px 0.5px 0.5px #888",
+                      fontFamily:
+                        "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
+                    }}
+                  >
+                    {slide.text}
+                  </Typography>
+                </Paper>
+              </Box>
+            ))}
+          </Carousel>
         </Container>
       </Box>
     </ThemeProvider>
