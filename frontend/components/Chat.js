@@ -128,7 +128,7 @@ const Chat = () => {
         marginBottom={2}
       >
       </Typography>
-      <div class="w-3/5 mx-auto">
+      <div class="w-4/5 mx-auto">
         <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
 
           <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
@@ -234,26 +234,44 @@ const Chat = () => {
       <div class="h-16"></div>
     </div>
     
-    <div className="w-1/2 mt-60">
-      {messageHistory.map((message, index) => (
-        <div key={index}>
-          <p style={{ maxWidth: "350px"}}>{message}</p>
+    <div className="w-1/2">
+      <Typography
+        marginTop="75px"
+        variant="h4"
+        marginBottom={2}
+      >
+      </Typography>
+      <div class="min-h-[600px] flex flex-col relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+        
+        <div className="mb-16">
+          {messageHistory.map((message, index) => (
+            <div key={index}>
+              <p className="text-gray-900 dark:text-white">{message}</p>
+            </div>
+          ))}
         </div>
-      ))}
+        
+        <div className="absolute bottom-5">
+          <form onSubmit={handleSubmit}>
+            <div className="flex">
+              <input
+                type="text"
+                placeholder="message of details"
+                class="h-7 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 flex w-400 p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+              />
+            
+              <button 
+                type="submit"
+                className="h-7 ml-2 flex w-full text-gray-800 dark:text-white items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100"
+              >
+                Send Chat
+              </button>
 
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <input
-              type="text"
-              placeholder="message of details"
-              value={message}
-              onChange={(event) => setMessage(event.target.value)}
-            />
-          
-          <button type="submit">Send Chat</button>
-          </div>
-        </form>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     
