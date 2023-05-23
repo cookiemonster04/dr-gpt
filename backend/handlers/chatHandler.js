@@ -222,13 +222,13 @@ const genAnswer = catchWrapGenAnswer(async (chatId, messageCallback) => {
   console.log(process.env["OPENAI_API_KEY"]);
   const context = {
     role: "system",
-    message:
+    content:
       "You are a general medical doctor. I will give you information about the user as well as a list of the user's symptoms, and you will give the user a diagnosis along with your percentage of confidence. You should aim for the highest confidence, so when needed, ask followup questions to gather more information. Then I'm going to tell you if you were right or wrong.",
   };
   const dataArray = user.dataArray;
   const profile = {
     role: "system",
-    message:
+    content:
       "Information about the user: " +
       "DOB: " +
       dataArray[0] +
