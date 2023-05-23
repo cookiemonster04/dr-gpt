@@ -50,9 +50,7 @@ const pushMessage = (chat) => async (chatId, message) => {
 let io = null;
 const init_io = (server) => {
   io = new Server(server, {
-    cors: {
-      origin: `http://localhost:${process.env.PORT}`,
-    },
+    origins: ['http://localhost:*', "https://vitawise.org:*"],
   });
   io.on("connection", (socket) => {
     console.log("connecting socket...");
@@ -73,7 +71,7 @@ const init_io = (server) => {
         message: content,
         sentTime: formattedDate,
       };
-      pushMessage(chat)(chatId, message);
+      await pushMessage(chat)(chatId, message);
       if (chat.users.length === 1) {
         // GPT conversation
         genAnswer(chatId, pushMessage(chat));

@@ -274,7 +274,7 @@ const genAnswer = catchWrapGenAnswer(async (chatId, messageCallback) => {
         context,
         profile,
         ...chat.conversation.map((msg) => ({
-          role: msg.sender_id === "GPT" ? "doctor" : "user",
+          role: msg.sender_id === "GPT" ? "assistant" : "user",
           content: msg.gpt_text ?? msg.message,
         })),
       ],
