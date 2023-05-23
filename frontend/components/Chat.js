@@ -243,10 +243,17 @@ const Chat = () => {
       </Typography>
       <div class="min-h-[600px] flex flex-col relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
         
+        <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+            New Conversation
+          </h3>
+        </div>
+
         <div className="mb-16">
           {messageHistory.map((message, index) => (
             <div key={index}>
               <p className="text-gray-900 dark:text-white">{message}</p>
+              <br></br>
             </div>
           ))}
         </div>
@@ -257,7 +264,7 @@ const Chat = () => {
               <input
                 type="text"
                 placeholder="message of details"
-                class="h-7 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 flex w-400 p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
+                class="h-7 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 flex w-400 p-2.5 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:black-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
               />
