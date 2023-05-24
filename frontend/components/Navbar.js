@@ -24,6 +24,9 @@ export default function Navbar({ handleTheme, getTheme, user }) {
               {user && (
               <ul class="flex list-none space-x-4">
                 <li class="list-none">
+                  <NavLink to="/chat" className="dark:text-white" >Chat</NavLink>
+                </li>
+                <li class="list-none">
                   <NavLink to="/profile" className="dark:text-white" >Profile</NavLink>
                 </li>
                 <li class="list-none">
