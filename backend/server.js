@@ -19,7 +19,7 @@ import {
 } from "./handlers/chatHandler.js";
 import { init_io } from "./socket.js";
 import { verifyEnd, sendVerifyEnd } from "./handlers/verifyHandler.js";
-const http = require('http');
+// const http = require('http');
 // const https = require('https');
 
 connectDB();
@@ -54,15 +54,15 @@ app.get("*", (req, res, next) => {
 });
 
 const port = process.env.PORT || 8000;
-app.listen(port, (err) => {
+const server = app.listen(port, (err) => {
   if (err) {
     console.log(err);
   }
   console.log("Server running on port " + port);
 });
 
-const server = http.Server(app);
+// const server = http.Server(app);
 // const server = https.Server(app);
-server.listen(5000);
+// server.listen(5000);
 
 init_io(server);
