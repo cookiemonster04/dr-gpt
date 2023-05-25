@@ -41,7 +41,7 @@ function Sidebar({
   return (
     <div id="Sidebar">
     <aside id="default-sidebar" class="fixed left-0 top-20 z-40 w-128 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidenav">
-      <div class="overflow-y-auto py-5 px-3 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+      <div class="overflow-y-auto py-5 rem-0.18 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         <ul class="space-y-2">
           {/* <li>
             <NavLink to="/" className="site-title">
@@ -55,7 +55,7 @@ function Sidebar({
             </NavLink>
           </li> */}
           <li>
-            <button variant="contained" onClick={createAppointment} class="text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
+            <button variant="contained" onClick={createAppointment} class="text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm rem-0.30 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
               New Appointment
             </button>
           </li>
@@ -171,7 +171,7 @@ export default function ChatComp(props) {
                 <div class="flex justify-start mb-4">
                   <img
                     src={logo}
-                    style={{ marginRight: "10px", width: "60px", height: "60px" }}
+                    style={{ marginRight: "0.6rem", width: "3.6rem", height: "3.6rem" }}
                   />
                   <div
                     class="ml-2 py-3 px-4 bg-gray-600 dark:bg-gray-400 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white"

@@ -75,7 +75,7 @@ hr {
   /* 1 */
   color: inherit;
   /* 2 */
-  border-top-width: 1px;
+  border-top-width: 0.06rem;
   /* 3 */
 }
 
@@ -272,7 +272,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 [type='search'] {
   -webkit-appearance: textfield;
   /* 1 */
-  outline-offset: -2px;
+  outline-offset: -0.12rem;
   /* 2 */
 }
 
@@ -495,7 +495,7 @@ video {
   --tw-numeric-spacing:  ;
   --tw-numeric-fraction:  ;
   --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-width: 0rem;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
   --tw-ring-offset-shadow: 0 0 #0000;
