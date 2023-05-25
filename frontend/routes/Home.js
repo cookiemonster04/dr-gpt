@@ -35,8 +35,8 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   "&:hover": {
     transform: "scale(1.05)",
   },
-  width: "375px",
-  height: "400px",
+  width: "22rem",
+  height: "23rem",
 }));
 
 const slides = [
@@ -94,14 +94,14 @@ function EmptyBoxWithButton() {
     backgroundColor: "#2493D4",
     color: "white",
     //border: "2px solid black",
-    borderRadius: "10px",
+    borderRadius: "0.625rem",
     textAlign: "center",
     lineHeight: "6rem",
-    width: "1060px",
+    width: "66.25rem",
   };
 
   const boxStyle = {
-    padding: "100px",
+    padding: "6rem",
     textAlign: "center",
   };
 
@@ -110,7 +110,7 @@ function EmptyBoxWithButton() {
   };
 
   return (
-    <div style={{ padding: "40px" }}>
+    <div style={{ padding: "2.5rem" }}>
       <Link to="/signup" style={{ textDecoration: "none" }}>
         <button style={buttonStyle}>
           <span style={buttonTextStyle}> Get started </span>
@@ -123,14 +123,14 @@ function EmptyBoxWithButton() {
 const Homepage = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ marginTop: "80px" }}>
+      <Box sx={{ marginTop: "5rem" }}>
         <Container>
           <Grid
             container
             spacing={2}
             sx={{
-              marginTop: "75px",
-              marginBottom: "50px",
+              marginTop: "4.8rem",
+              marginBottom: "3rem",
               justifyContent: "flex-start",
             }}
           >
@@ -144,8 +144,8 @@ const Homepage = () => {
                     "&:hover": {
                       transform: "scale(1.05)",
                     },
-                    width: "375px",
-                    height: "400px",
+                    width: "22rem",
+                    height: "22.5rem",
                     backgroundImage: `url(${step.backgroundImageUrl})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -157,7 +157,7 @@ const Homepage = () => {
                     gutterBottom
                     sx={{
                       fontSize: "2rem",
-                      textShadow: "1.2px 1.2px 1.2px #888",
+                      textShadow: "0.08rem 0.08rem 0.08rem #888",
                       fontFamily:
                         "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
                     }}
@@ -169,7 +169,7 @@ const Homepage = () => {
                     gutterBottom
                     sx={{
                       fontSize: "1.4rem",
-                      textShadow: "0.5px 0.5px 0.5px #888",
+                      textShadow: "0.03rem 0.03rem 0.03rem #888",
                       fontFamily:
                         "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
                     }}
@@ -208,7 +208,7 @@ const Homepage = () => {
                     backgroundColor: "rgba(255, 255, 255, 0.9)",
                     borderRadius: 2,
                     boxShadow:
-                      "0 12px 30px rgba(0, 0, 0, 0.4), 0 10px 12px rgba(0, 0, 0, 0.6)",
+                      "0 0.8rem 1.7rem rgba(0, 0, 0, 0.4), 0 0.7rem 0.9rem rgba(0, 0, 0, 0.6)",
                   }}
                 >
                   <Typography
@@ -217,7 +217,7 @@ const Homepage = () => {
                     gutterBottom
                     sx={{
                       fontSize: "3.5rem",
-                      textShadow: "1.8px 1.8px 4px #888",
+                      textShadow: "1.08rem 1.08rem 0.24rem #888",
                       fontFamily:
                         "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
                     }}
@@ -229,7 +229,7 @@ const Homepage = () => {
                     gutterBottom
                     sx={{
                       fontSize: "1.7rem",
-                      textShadow: "0.5px 0.5px 0.5px #888",
+                      textShadow: "0.03rem 0.03rem 0.03rem #888",
                       fontFamily:
                         "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
                     }}
