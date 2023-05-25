@@ -34,7 +34,7 @@ const Start = () => {
   return (
     <div class="min-h-screen">
       <Typography
-        marginTop="75px"
+        marginTop="4.69rem"
         variant="h4"
         marginBottom={2}
       >
@@ -131,7 +131,7 @@ const Start = () => {
               </button>
 
               <br></br>
-              <button onClick={handleData} class="text-gray-800 dark:text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+              <button onClick={handleData} class="text-gray-800 dark:text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm rem-0.3275 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                 Submit
               </button>
 
