@@ -138,7 +138,7 @@ const Profile = ({ userId, user, themeMode }) => {
             </div>
 
 
-            <div class="w-3/5 mx-auto pb-40 mt-20">
+            <div class="w-full sm:w-3/5 mx-auto pb-40 mt-20">
               <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
 
                 <form onSubmit={handleSubmit}>
