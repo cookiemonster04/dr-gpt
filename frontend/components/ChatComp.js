@@ -119,7 +119,7 @@ export default function ChatComp(props) {
         )
       );
       userMap.set(user._id.toString(), "You");
-      userMap.set("GPT", "Dr. GPT");
+      userMap.set("GPT", "Vitawise");
       setMap(userMap);
       setMapLoaded(true);
     }
