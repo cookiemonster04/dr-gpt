@@ -13,6 +13,7 @@ import homeslide5 from "../../assets/homeslide5.png";
 import step1 from "../../assets/step1.png";
 import step2 from "../../assets/step2.png";
 import step3 from "../../assets/step3.png";
+import preview from "../../assets/preview2.png";
 
 
 const theme = createTheme({
@@ -91,7 +92,7 @@ function EmptyBoxWithButton() {
     justifyContent: "center",
     alignItems: "center",
     fontSize: "6rem",
-    backgroundColor: "#2493D4",
+    backgroundColor: "#3B82F6",
     color: "white",
     //border: "2px solid black",
     borderRadius: "0.625rem",
@@ -124,6 +125,51 @@ const Homepage = () => {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ marginTop: "5rem" }}>
+      <div style={{ position: 'relative', height: '41.5rem' }}>
+      <img
+        src={preview} // Replace with the actual image URL
+        alt="Background"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: 0,
+          transform: 'translateY(-50%)',
+          textAlign: 'left',
+          width: '50%',
+        }}
+      >
+        <h1 style={{ color: 'black', marginLeft: '1.2rem', marginTop: '-17rem', fontSize: '1.9rem', fontFamily:  "system-ui, 'Nunito', 'Source Sans Pro', sans-serif" , textShadow: '0.12rem 0.12rem 0.18rem rgba(0, 0, 0, 0.5)'}}>
+        No more waiting, no more inconvenient appointments. <br />
+        Get advice instantly from Vitawise, our medical diagnosis AI </h1>
+        <a href="/signup" style={{ textDecoration: 'none' }}>
+          <button
+            style={{
+              display: 'inline-block',
+              marginTop: '1.1rem',
+              marginLeft: '1.2rem',
+              padding: '0.6rem 1.2rem',
+              fontSize: '0.96rem',
+              backgroundColor: '#3B82F6',
+              color: 'white',
+              border: 'none',
+              borderRadius: '0.6rem',
+            }}
+          >
+            Register Now
+          </button>
+        </a>
+      </div>
+    </div>
         <Container>
           <Grid
             container
@@ -217,7 +263,7 @@ const Homepage = () => {
                     gutterBottom
                     sx={{
                       fontSize: "3.5rem",
-                      textShadow: "1.08rem 1.08rem 0.24rem #888",
+                      textShadow: "0.18rem 0.18rem 0.24rem #888",
                       fontFamily:
                         "system-ui, 'Nunito', 'Source Sans Pro', sans-serif",
                     }}
