@@ -91,7 +91,7 @@ function EmptyBoxWithButton() {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontSize: "6rem",
+    fontSize: "6.1rem",
     backgroundColor: "#3B82F6",
     color: "white",
     //border: "2px solid black",
