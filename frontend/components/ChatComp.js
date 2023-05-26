@@ -40,42 +40,42 @@ function Sidebar({
   console.log("chatPreviews", chatPreviews);
   return (
     <div id="Sidebar">
-    <aside id="default-sidebar" class="fixed left-0 top-20 z-40 w-128 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidenav">
-      <div class="overflow-y-auto py-5 rem-0.18 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-        <ul class="space-y-2">
-          {/* <li>
-            <NavLink to="/" className="site-title">
-              <div class="grid gap-4 sm:grid-cols-2">
-                <img
-                  src={logo}
-                  style={{ marginRight: "10px", width: "60px", height: "60px" }}
-                />
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Vitawise</span>
-              </div>
-            </NavLink>
-          </li> */}
-          <li>
-            <button variant="contained" onClick={createAppointment} class="text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm rem-0.30 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
-              New Appointment
-            </button>
-          </li>
-          {chatPreviews.map((preview) => (
-            <li
-              key={preview.chatId}
-              disablePadding
-              sx={{
-                backgroundColor:
-                  preview.chatId === curChatId ? lightBlue[100] : null,
-              }}
-            >
-              <div onClick={() => switchChat(preview.chatId)} class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                <span class="ml-3">Appointment on {preview.creationTime}</span>
-              </div>
+      <aside id="default-sidebar" class="fixed left-0 top-20 z-40 w-128 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidenav">
+        <div class="overflow-y-auto py-5 px-3 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+          <ul class="space-y-2">
+            {/* <li>
+              <NavLink to="/" className="site-title">
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <img
+                    src={logo}
+                    style={{ marginRight: "10px", width: "60px", height: "60px" }}
+                  />
+                  <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Vitawise</span>
+                </div>
+              </NavLink>
+            </li> */}
+            <li>
+              <button variant="contained" onClick={createAppointment} class="text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
+                New Appointment
+              </button>
             </li>
-          ))}
-        </ul>
-      </div>
-    </aside>
+            {chatPreviews.map((preview) => (
+              <li
+                key={preview.chatId}
+                disablePadding
+                sx={{
+                  backgroundColor:
+                    preview.chatId === curChatId ? lightBlue[100] : null,
+                }}
+              >
+                <div onClick={() => switchChat(preview.chatId)} class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                  <span class="ml-3">Appointment on {preview.creationTime}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
     </div>
   );
 }
