@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Typography, Box } from "@mui/material";
 import "../public/styles.css";
+import { NavLink } from "react-router-dom";
 
 const Start = () => {
   const [symptoms, setSymptoms] = useState([
@@ -33,13 +34,21 @@ const Start = () => {
 
   return (
     <div class="min-h-screen">
-      <Typography
-        marginTop="4.69rem"
-        variant="h4"
-        marginBottom={2}
-      >
-      </Typography>
-      <div class="sm:w-full md:w-3/5 mx-auto">
+      <div className="md:w-3/5 sm:w-4/5 mx-auto text-center">
+        <Typography
+          marginTop="4.69rem"
+          variant="h6"
+          marginBottom={2}
+          className="dark:text-white"
+        >
+          To get the most accurate diagnoses, we recommend filling out your profile information if you haven't already.
+        </Typography>
+        <NavLink to='/profile' className="underline dark:text-white mx-auto text-center pb-2">
+          Go to profile page
+        </NavLink>
+      </div>
+      
+      <div class="sm:w-full md:w-3/5 mx-auto mt-4">
         <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
 
           <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">

@@ -129,12 +129,17 @@ const Profile = ({ userId, user, themeMode }) => {
                 paddingTop="2.24rem"
                 marginTop="4.2rem"
                 variant="h4"
-                marginBottom={2}
+                marginBottom={1}
                 className="dark:text-white"
                 align="center"
               >
                 Welcome back, {username}!
               </Typography>
+
+              <p className="sm:w-4/5 md:w-3/5 dark:text-white mx-auto text-center text-lg">
+                Start by filling out your profile. While no field is mandatory, the more information you provide, 
+                the more likely it is that your diagnosis will be accurate.
+              </p>
             </div>
 
 
