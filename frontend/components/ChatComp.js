@@ -138,7 +138,7 @@ export default function ChatComp(props) {
             new
           </button>
           
-          {previews.length > 0 && ( // Check if chatPreviews.length is greater than 0
+          {chatId && ( // Check if chatPreviews.length is greater than 0
             <MessageInput
               className="w-full"
               style={{ flexGrow: 0, flexShrink: 0 }}
@@ -154,6 +154,16 @@ export default function ChatComp(props) {
         <div className="relative">
           <div className="fixed top-20 md:left-1/2 lg:left-1/4 dark:bg-gray-700 h-5/6 md:w-3/4 sm:w-100dvh flex-grow
             overflow-auto">
+
+            {chatId ? (
+              <>
+              </>
+            ) : (
+              <div className="w-2/3 h-full mx-auto my-auto">
+                
+               
+              </div>
+            )}
 
             <div className="px-2">
               {chatContent &&
