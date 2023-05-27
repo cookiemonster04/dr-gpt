@@ -131,7 +131,7 @@ export default function ChatComp(props) {
         /> 
 
         <div className="relative">
-          <div className="fixed top-20 md:left-1/4 dark:bg-gray-700 h-5/6 w-120 flex-grow
+          <div className="fixed top-20 md:left-1/2 lg:left-1/4 dark:bg-gray-700 h-5/6 w-120 flex-grow
             overflow-auto">
 
             <div className="px-2">
