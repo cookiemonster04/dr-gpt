@@ -122,7 +122,6 @@ export default function ChatComp(props) {
 
       <div class="flex min-h-screen bg-blue-100 dark:bg-gray-700"> 
         
-        
         <Sidebar
           map={map}
           chatPreviews={previews}
@@ -134,37 +133,32 @@ export default function ChatComp(props) {
         <div class="md:w-3/4 md:left-1/2 lg:left-1/4 sm:w-100dvh lg:py-3 md:py-3 sm:py-3 fixed bottom-0 w-full">
           <div className="flex">
 
-          <button variant="contained" onClick={createAppointment} class="md:hidden text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
-            new
-          </button>
-          
-          {chatId && ( // Check if chatPreviews.length is greater than 0
-            <MessageInput
-              className="w-full"
-              style={{ flexGrow: 0, flexShrink: 0 }}
-              placeholder="Aa"
-              onSend={(event) => handleSend(chatContent._id.toString(), event)}
-              attachButton={false}
-            />
+          {!chatId && (
+            <button variant="contained" onClick={createAppointment} class="w-full md:hidden text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
+              new appointment
+            </button>
           )}
+          {chatId && ( 
+            <>
+              <button variant="contained" onClick={createAppointment} class="md:hidden text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
+              new
+              </button>
+              <MessageInput
+                className="w-full"
+                style={{ flexGrow: 0, flexShrink: 0 }}
+                placeholder="Aa"
+                onSend={(event) => handleSend(chatContent._id.toString(), event)}
+                attachButton={false}
+              />
+            </>
+          )}
+
           </div>
-          
         </div>
-
+        
         <div className="relative">
-          <div className="fixed top-20 md:left-1/2 lg:left-1/4 dark:bg-gray-700 h-5/6 md:w-3/4 sm:w-100dvh flex-grow
+          <div className="fixed top-20 md:left-1/2 lg:left-1/4 h-5/6 md:w-3/4 sm:w-100dvh flex-grow
             overflow-auto">
-
-            {chatId ? (
-              <>
-              </>
-            ) : (
-              <div className="w-2/3 h-full mx-auto my-auto">
-                
-               
-              </div>
-            )}
-
             <div className="px-2">
               {chatContent &&
               chatContent.conversation.map((msg, idx) => (
@@ -219,119 +213,8 @@ export default function ChatComp(props) {
                 </MessageGroup>
               ))}
             </div>
-
-              
-            
           </div>
-        </div>
-        
-        {/* <div class="flex flex-row overflow-auto">
-
-          <div class="basis-1/5"></div>
-
-          <div class="basis-4/5">
-
-            <div>
-              <div class="mb-20"></div>
-              <div class="px-5 flex flex-col justify-between bg-blue-100 dark:bg-gray-700">
-                
-
-                <div class="flex flex-col mt-5">
-
-                <div class="flex justify-start mb-4">
-                  <img
-                    src={logo}
-                    style={{ marginRight: "0.6rem", width: "3.6rem", height: "3.6rem" }}
-                  />
-                  <div
-                    class="ml-2 py-3 px-4 bg-gray-600 dark:bg-gray-400 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white"
-                  >
-                    Welcome to Vitawise, Remember that the information provided on this website is for informational 
-                    purposes only and should not be considered a substitute for professional medical advice, diagnosis, 
-                    or treatment. The purpose of this website is to provide general information and assist users in 
-                    understanding potential medical conditions based on their symptoms. However, it is crucial to note 
-                    that the information provided on this website should not be solely relied upon for making medical 
-                    decisions.
-                  </div>
-                </div>
-                  
-                {chatContent &&
-                  chatContent.conversation.map((msg, idx) => (
-                    <MessageGroup
-                      key={`msg_${idx}`}
-                      direction={
-                        msg.sender_id === user._id.toString()
-                          ? "outgoing"
-                          : "incoming"
-                      }
-                      sender={map.get(msg.sender_id)}
-                    >
-                      <MessageGroup.Messages>
-                        {msg.render_text ? (
-                          <Message
-                            key={`message_${idx}`}
-                            model={{
-                              sentTime: msg.sentTime,
-                            }}
-                          >
-                            <Message.HtmlContent html={msg.render_text} />
-                            <Message.Header
-                              sender={
-                                msg.sender_id === user._id.toString()
-                                  ? 
-                                    null
-                                  : map.get(msg.sender_id)
-                              }
-                              sentTime={msg.sentTime}
-                            />
-                          </Message>
-                        ) : (
-                          <Message
-                            key={`message_${idx}`}
-                            model={{
-                              message: msg.message,
-                              sentTime: msg.sentTime,
-                            }}
-                          >
-                            <Message.Header
-                              sender={
-                                msg.sender_id === user._id.toString()
-                                  ? 
-                                    null
-                                  : map.get(msg.sender_id)
-                              }
-                              sentTime={msg.sentTime}
-                            />
-                          </Message>
-                        )}
-                      </MessageGroup.Messages>
-                    </MessageGroup>
-                  ))}
-
-                  
-
-                  
-                </div>
-                <div class="py-5">
-                  <MessageInput
-                    style={{ flexGrow: 0, flexShrink: 0 }}
-                    placeholder="Aa"
-                    onSend={(event) =>
-                      handleSend(chatContent._id.toString(), event)
-                    }
-                    disabled={
-                      gptStatus.find((chat) => chat.chatId === chatId)
-                        ?.restricted ?? false
-                    }
-                    // sendButton={false}
-                    attachButton={false}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-              
+        </div>           
       </div>
     )
   );
