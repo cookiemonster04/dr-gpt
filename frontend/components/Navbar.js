@@ -16,7 +16,7 @@ export default function Navbar({ handleTheme, getTheme, user }) {
                   src={logo}
                   style={{ marginRight: "0.6rem", width: "3.6rem", height: "3.6rem" }}
                 />
-                <span className="self-center text-xl hidden md:flex font-semibold whitespace-nowrap dark:text-white">Vitawise</span>
+                <span className="self-center text-xl hidden md:flex font-semibold whitespace-nowrap dark:text-white ml-2">Vitawise</span>
               </div>
             </NavLink>
 
@@ -30,7 +30,7 @@ export default function Navbar({ handleTheme, getTheme, user }) {
                   <NavLink to="/profile" className="dark:text-white" >Profile</NavLink>
                 </li>
                 <li class="list-none">
-                  <NavLink to="/logout" className="dark:text-white">Logout</NavLink>
+                  <NavLink to="/logout" className="dark:text-white mr-2">Logout</NavLink>
                 </li>
               </ul>
             )}
@@ -41,7 +41,7 @@ export default function Navbar({ handleTheme, getTheme, user }) {
                 
               </li>
               <li class="list-none">
-                <NavLink to="/signup" className="dark:text-white">Signup</NavLink>
+                <NavLink to="/signup" className="dark:text-white mr-2">Signup</NavLink>
               </li>
             </ul>
             )}
