@@ -145,10 +145,7 @@ export default function ChatComp(props) {
             onSend={(event) =>
               handleSend(chatContent._id.toString(), event)
             }
-            disabled={
-              gptStatus.find((chat) => chat.chatId === chatId)
-                ?.restricted ?? false
-            }
+            
             // sendButton={false}
             attachButton={false}
           />
