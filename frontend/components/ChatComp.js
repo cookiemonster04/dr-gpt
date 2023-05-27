@@ -130,6 +130,22 @@ export default function ChatComp(props) {
           createAppointment={createAppointment}
         /> 
 
+        <div class=" md:w-3/4  md:left-1/2 lg:left-1/4 sm:w-100dvh lg:py-3 md:py-3 sm:py-3 fixed bottom-0 w-full">
+          <MessageInput
+            style={{ flexGrow: 0, flexShrink: 0 }}
+            placeholder="Aa"
+            onSend={(event) =>
+              handleSend(chatContent._id.toString(), event)
+            }
+            disabled={
+              gptStatus.find((chat) => chat.chatId === chatId)
+                ?.restricted ?? false
+            }
+            // sendButton={false}
+            attachButton={false}
+          />
+        </div>
+
         <div className="relative">
           <div className="fixed top-20 md:left-1/2 lg:left-1/4 dark:bg-gray-700 h-5/6 md:w-3/4 sm:w-100dvh flex-grow
             overflow-auto">
@@ -188,24 +204,6 @@ export default function ChatComp(props) {
                 </MessageGroup>
               ))}
             </div>
-            
-
-              
-              <div class="py-5">
-                <MessageInput
-                  style={{ flexGrow: 0, flexShrink: 0 }}
-                  placeholder="Aa"
-                  onSend={(event) =>
-                    handleSend(chatContent._id.toString(), event)
-                  }
-                  disabled={
-                    gptStatus.find((chat) => chat.chatId === chatId)
-                      ?.restricted ?? false
-                  }
-                  // sendButton={false}
-                  attachButton={false}
-                />
-              </div>
 
               
             
