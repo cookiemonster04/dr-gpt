@@ -138,17 +138,15 @@ export default function ChatComp(props) {
             new
           </button>
           
-          <MessageInput
-            className="w-full"
-            style={{ flexGrow: 0, flexShrink: 0 }}
-            placeholder="Aa"
-            onSend={(event) =>
-              handleSend(chatContent._id.toString(), event)
-            }
-            
-            // sendButton={false}
-            attachButton={false}
-          />
+          {previews.length > 0 && ( // Check if chatPreviews.length is greater than 0
+            <MessageInput
+              className="w-full"
+              style={{ flexGrow: 0, flexShrink: 0 }}
+              placeholder="Aa"
+              onSend={(event) => handleSend(chatContent._id.toString(), event)}
+              attachButton={false}
+            />
+          )}
           </div>
           
         </div>

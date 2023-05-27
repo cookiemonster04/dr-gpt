@@ -84,7 +84,7 @@ const Start = () => {
                           required=""/>
                       </div>
                       <div>
-                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Severity</label>
+                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Severity (1 to 10)</label>
                         <input 
                           type="number" 
                           name="severity" 
