@@ -39,7 +39,7 @@ const Start = () => {
         marginBottom={2}
       >
       </Typography>
-      <div class="w-3/5 mx-auto">
+      <div class="sm:w-full md:w-3/5 mx-auto">
         <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
 
           <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
