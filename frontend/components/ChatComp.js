@@ -29,7 +29,6 @@ import { lightBlue } from "@mui/material/colors";
 
 const drawerWidth = 400;
 
-// Reference: https://mui.com/material-ui/react-drawer/
 function Sidebar({
   chatPreviews,
   map,
@@ -40,20 +39,9 @@ function Sidebar({
   console.log("chatPreviews", chatPreviews);
   return (
     <div id="Sidebar">
-      <aside id="default-sidebar" class="fixed left-0 top-20 z-40 w-128 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidenav">
+      <div class="fixed left-0 top-20 z-40 w-128 h-screen transition-transform -translate-x-full md:translate-x-0" aria-label="Sidenav">
         <div class="overflow-y-auto py-5 px-3 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
           <ul class="space-y-2">
-            {/* <li>
-              <NavLink to="/" className="site-title">
-                <div class="grid gap-4 sm:grid-cols-2">
-                  <img
-                    src={logo}
-                    style={{ marginRight: "10px", width: "60px", height: "60px" }}
-                  />
-                  <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Vitawise</span>
-                </div>
-              </NavLink>
-            </li> */}
             <li>
               <button variant="contained" onClick={createAppointment} class="text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
                 New Appointment
@@ -75,7 +63,7 @@ function Sidebar({
             ))}
           </ul>
         </div>
-      </aside>
+      </div>
     </div>
   );
 }
@@ -131,22 +119,9 @@ export default function ChatComp(props) {
   return (
     mapLoaded &&
     gptStatus && (
-      // <Box
-      //   sx={{
-      //     display: "flex",
-      //     flexDirection: "column",
-      //     height: "100%",
-      //     maxHeight: "100%",
-      //   }}
-      // >
-      //   <div id = "REMOVE"></div>
-      //   <CssBaseline />
-      //   <Box
-      //     component="nav"
-      //     sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-      //   >
-      <div class="flex min-h-screen bg-blue-100 dark:bg-gray-700"> 
 
+      <div class="flex min-h-screen bg-blue-100 dark:bg-gray-700"> 
+      
         <Sidebar
           map={map}
           chatPreviews={previews}
@@ -154,8 +129,97 @@ export default function ChatComp(props) {
           curChatId={chatId}
           createAppointment={createAppointment}
         /> 
+
+        <div className="relative">
+          <div className="fixed top-20 md:left-1/4 dark:bg-gray-700 h-5/6 w-120 flex-grow
+            overflow-auto">
+
+            <div className="px-2">
+              {chatContent &&
+              chatContent.conversation.map((msg, idx) => (
+                <MessageGroup
+                  key={`msg_${idx}`}
+                  direction={
+                    msg.sender_id === user._id.toString()
+                      ? "outgoing"
+                      : "incoming"
+                  }
+                  sender={map.get(msg.sender_id)}
+                >
+                  <MessageGroup.Messages>
+                    {msg.render_text ? (
+                      <Message
+                        key={`message_${idx}`}
+                        model={{
+                          sentTime: msg.sentTime,
+                        }}
+                      >
+                        <Message.HtmlContent html={msg.render_text} />
+                        <Message.Header
+                          sender={
+                            msg.sender_id === user._id.toString()
+                              ? 
+                                null
+                              : map.get(msg.sender_id)
+                          }
+                          sentTime={msg.sentTime}
+                        />
+                      </Message>
+                    ) : (
+                      <Message
+                        key={`message_${idx}`}
+                        model={{
+                          message: msg.message,
+                          sentTime: msg.sentTime,
+                        }}
+                      >
+                        <Message.Header
+                          sender={
+                            msg.sender_id === user._id.toString()
+                              ? 
+                                null
+                              : map.get(msg.sender_id)
+                          }
+                          sentTime={msg.sentTime}
+                        />
+                      </Message>
+                    )}
+                  </MessageGroup.Messages>
+                </MessageGroup>
+              ))}
+            </div>
+            
+
+              
+              <div class="py-5">
+                <MessageInput
+                  style={{ flexGrow: 0, flexShrink: 0 }}
+                  placeholder="Aa"
+                  onSend={(event) =>
+                    handleSend(chatContent._id.toString(), event)
+                  }
+                  disabled={
+                    gptStatus.find((chat) => chat.chatId === chatId)
+                      ?.restricted ?? false
+                  }
+                  // sendButton={false}
+                  attachButton={false}
+                />
+              </div>
+
+              
+            
+          </div>
+        </div>
         
-        <div class="flex flex-row">
+
+
+
+
+
+
+        
+        {/* <div class="flex flex-row overflow-auto">
 
           <div class="basis-1/5"></div>
 
@@ -208,7 +272,7 @@ export default function ChatComp(props) {
                             <Message.Header
                               sender={
                                 msg.sender_id === user._id.toString()
-                                  ? /* || chatContent.users.length === 2 */
+                                  ? 
                                     null
                                   : map.get(msg.sender_id)
                               }
@@ -226,7 +290,7 @@ export default function ChatComp(props) {
                             <Message.Header
                               sender={
                                 msg.sender_id === user._id.toString()
-                                  ? /* || chatContent.users.length === 2 */
+                                  ? 
                                     null
                                   : map.get(msg.sender_id)
                               }
@@ -260,105 +324,9 @@ export default function ChatComp(props) {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
               
       </div>
-      //   </Box>
-      //   {chatId && (
-      //     <Box
-      //       component="div"
-      //       sx={{
-      //         display: "flex",
-      //         width: { sm: `calc(100% - ${drawerWidth}px)` },
-      //         flexGrow: 1,
-      //         flexDirection: "column",
-      //         ml: { sm: `${drawerWidth}px` },
-      //         mt: { sm: `64px` },
-      //         maxHeight: {
-      //           sm: `calc(100% - 64px)`,
-      //         },
-      //       }}
-      //     >
-      //       <MainContainer
-      //         style={{
-      //           maxHeight: "100%",
-      //           flexDirection: "column",
-      //           flexGrow: 1,
-      //         }}
-      //       >
-      //         <ChatContainer style={{ maxHeight: "100%", flexGrow: 1 }}>
-      //           <MessageList style={{ flexGrow: 1 }}>
-      //             {chatContent &&
-      //               chatContent.conversation.map((msg, idx) => (
-      //                 <MessageGroup
-      //                   key={`msg_${idx}`}
-      //                   direction={
-      //                     msg.sender_id === user._id.toString()
-      //                       ? "outgoing"
-      //                       : "incoming"
-      //                   }
-      //                   sender={map.get(msg.sender_id)}
-      //                 >
-      //                   <MessageGroup.Messages>
-      //                     {msg.render_text ? (
-      //                       <Message
-      //                         key={`message_${idx}`}
-      //                         model={{
-      //                           sentTime: msg.sentTime,
-      //                         }}
-      //                       >
-      //                         <Message.HtmlContent html={msg.render_text} />
-      //                         <Message.Header
-      //                           sender={
-      //                             msg.sender_id === user._id.toString()
-      //                               ? // || chatContent.users.length === 2
-      //                                 null
-      //                               : map.get(msg.sender_id)
-      //                           }
-      //                           sentTime={msg.sentTime}
-      //                         />
-      //                       </Message>
-      //                     ) : (
-      //                       <Message
-      //                         key={`message_${idx}`}
-      //                         model={{
-      //                           message: msg.message,
-      //                           sentTime: msg.sentTime,
-      //                         }}
-      //                       >
-      //                         <Message.Header
-      //                           sender={
-      //                             msg.sender_id === user._id.toString()
-      //                               ? // || chatContent.users.length === 2
-      //                                 null
-      //                               : map.get(msg.sender_id)
-      //                           }
-      //                           sentTime={msg.sentTime}
-      //                         />
-      //                       </Message>
-      //                     )}
-      //                   </MessageGroup.Messages>
-      //                 </MessageGroup>
-      //               ))}
-      //           </MessageList>
-      //           <MessageInput
-      //             style={{ flexGrow: 0, flexShrink: 0 }}
-      //             placeholder="Aa"
-      //             onSend={(event) =>
-      //               handleSend(chatContent._id.toString(), event)
-      //             }
-      //             disabled={
-      //               gptStatus.find((chat) => chat.chatId === chatId)
-      //                 ?.restricted ?? false
-      //             }
-      //             // sendButton={false}
-      //             attachButton={false}
-      //           />
-      //         </ChatContainer>
-      //       </MainContainer>
-      //     </Box>
-      //   )}
-      // </Box>
     )
   );
 }
