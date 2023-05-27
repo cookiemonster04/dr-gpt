@@ -121,7 +121,8 @@ export default function ChatComp(props) {
     gptStatus && (
 
       <div class="flex min-h-screen bg-blue-100 dark:bg-gray-700"> 
-      
+        
+        
         <Sidebar
           map={map}
           chatPreviews={previews}
@@ -130,8 +131,15 @@ export default function ChatComp(props) {
           createAppointment={createAppointment}
         /> 
 
-        <div class=" md:w-3/4  md:left-1/2 lg:left-1/4 sm:w-100dvh lg:py-3 md:py-3 sm:py-3 fixed bottom-0 w-full">
+        <div class="md:w-3/4 md:left-1/2 lg:left-1/4 sm:w-100dvh lg:py-3 md:py-3 sm:py-3 fixed bottom-0 w-full">
+          <div className="flex">
+
+          <button variant="contained" onClick={createAppointment} class="md:hidden text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
+            new
+          </button>
+          
           <MessageInput
+            className="w-full"
             style={{ flexGrow: 0, flexShrink: 0 }}
             placeholder="Aa"
             onSend={(event) =>
@@ -144,6 +152,8 @@ export default function ChatComp(props) {
             // sendButton={false}
             attachButton={false}
           />
+          </div>
+          
         </div>
 
         <div className="relative">
@@ -209,13 +219,6 @@ export default function ChatComp(props) {
             
           </div>
         </div>
-        
-
-
-
-
-
-
         
         {/* <div class="flex flex-row overflow-auto">
 

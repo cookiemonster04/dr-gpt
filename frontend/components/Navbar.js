@@ -12,11 +12,11 @@ export default function Navbar({ handleTheme, getTheme, user }) {
       <div className="flex flex-wrap justify-between items-center mx-auto w-full sticky top-0 bg-white border-gray-200 rem-0.24 lg:px-6 py-2.5 dark:bg-gray-800">
             <NavLink to="/" className="site-title">
               <div className="grid gap-4 sm:grid-cols-2">
-              <img
-                src={logo}
-                style={{ marginRight: "0.6rem", width: "3.6rem", height: "3.6rem" }}
-              />
-              <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Vitawise</span>
+                <img
+                  src={logo}
+                  style={{ marginRight: "0.6rem", width: "3.6rem", height: "3.6rem" }}
+                />
+                <span className="self-center text-xl hidden md:flex font-semibold whitespace-nowrap dark:text-white">Vitawise</span>
               </div>
             </NavLink>
 
@@ -24,7 +24,7 @@ export default function Navbar({ handleTheme, getTheme, user }) {
               {user && (
               <ul class="flex list-none space-x-4">
                 <li class="list-none">
-                  <NavLink to="/start" className="dark:text-white" >New Chat</NavLink>
+                  <NavLink to="/chat" className="dark:text-white" >Chat</NavLink>
                 </li>
                 <li class="list-none">
                   <NavLink to="/profile" className="dark:text-white" >Profile</NavLink>
