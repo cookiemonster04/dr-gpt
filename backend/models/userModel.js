@@ -9,7 +9,7 @@ const passwordCheck = (password) => {
     errors.push("Please specify a password");
     return errors;
   }
-  if (password.length <= 8) {
+  if (password.length < 8) {
     errors.push("Password must be at least 8 characters long");
   }
   if (password.length > 30) {
@@ -23,9 +23,6 @@ const passwordCheck = (password) => {
   }
   if (password.search(/[0-9]/) == -1) {
     errors.push("Password must contain at least one digit");
-  }
-  if (password.search(/[@$!%^*#?&~]/) == -1) {
-    errors.push("Password must contain at least one special character");
   }
   return errors;
 };
