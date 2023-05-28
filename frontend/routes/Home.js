@@ -123,7 +123,7 @@ function EmptyBoxWithButton() {
 
 const Homepage = () => {
   return (
-    <body className="bg-primary-100 dark:bg-gray-700">
+    <body className="bg-primary-100 dark:bg-gray-700 overflow-x:hidden">
 
       {/* pc homescreen starts here */}
       <ThemeProvider theme={theme} >

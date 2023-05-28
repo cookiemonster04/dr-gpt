@@ -134,13 +134,13 @@ export default function ChatComp(props) {
           <div className="flex">
 
           {!chatId && (
-            <button variant="contained" onClick={createAppointment} class="w-full md:hidden text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
+            <button variant="contained" onClick={createAppointment} class="w-full md:hidden text-gray-800 dark:text-white inline-flex items-center bg-blue-400 dark:bg-blue-700 hover:bg-blue-400 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-800">
               new appointment
             </button>
           )}
           {chatId && ( 
             <>
-              <button variant="contained" onClick={createAppointment} class="md:hidden text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
+              <button variant="contained" onClick={createAppointment} class="md:hidden text-gray-800 dark:text-white inline-flex items-center bg-blue-400 dark:bg-blue-700 hover:bg-blue-400 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-800">
               new
               </button>
               <MessageInput
