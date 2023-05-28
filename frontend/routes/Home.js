@@ -123,7 +123,9 @@ function EmptyBoxWithButton() {
 
 const Homepage = () => {
   return (
-    <div>
+    <body className="bg-primary-100 dark:bg-gray-700">
+
+      {/* pc homescreen starts here */}
       <ThemeProvider theme={theme} >
         <Box sx={{ marginTop: "5rem" }} className="hidden md:block">
           <div style={{ position: 'relative', height: '41.5rem' }}>
@@ -290,6 +292,8 @@ const Homepage = () => {
           </Container>
         </Box>
       </ThemeProvider>
+
+      {/* mobile homescreen starts here */}
       <div className="block md:hidden w-[100vh] h-[100vh]">
         <div
           className="dark:bg-gray-700 bg-primary-200"
@@ -325,12 +329,9 @@ const Homepage = () => {
               Register Now
             </button>
           </a>
-
-          
-
         </div>
       </div>
-    </div>
+    </body>
   );
 };
 
