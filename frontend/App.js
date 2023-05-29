@@ -11,7 +11,10 @@ import Chat from "./routes/Chat";
 import Start from "./routes/Start";
 import Verify from "./routes/Verify";
 import Resend from "./routes/Resend";
+import Terms from "./routes/TermsOfService";
 import "./App.css";
+import TermsOfService from "./routes/TermsOfService";
+import PrivacyPolicy from "./routes/PrivacyPolicy"
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -182,6 +185,32 @@ function App() {
           />
           <Route path="/verify/:verifyToken" element={<Verify />} />
           <Route path="/resend" element={<Resend />} />
+          <Route 
+            path="/terms" 
+            element={
+              <>
+                <Navbar
+                  getTheme={theme}
+                  handleTheme={toggleTheme}
+                  user={user}
+                />{" "}
+                <TermsOfService />
+              </>
+            }
+          />
+          <Route 
+            path="/privacy" 
+            element={
+              <>
+                <Navbar
+                  getTheme={theme}
+                  handleTheme={toggleTheme}
+                  user={user}
+                />{" "}
+                <PrivacyPolicy />
+              </>
+            }
+          />
         </Routes>
       ) : (
         <div className="container">Loading, please stand by...</div>

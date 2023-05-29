@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import "./Signup.css";
 import { Typography } from "@mui/material";
+import { NavLink, Navigate } from "react-router-dom";
+
 
 const Item = ({ name, type, formValue, setFormValue, placeholder }) => {
   return (
@@ -111,6 +112,14 @@ const Signup = ({ user, setUser, themeMode }) => {
               setFormValue={setPassword}
               placeholder=""
             />
+            <input type="checkbox" className="mr-2">
+            </input>
+
+            
+            <label>
+              I have read and agree to Vitawise's <NavLink to="/terms" className="underline">Terms of Service</NavLink> and <NavLink to="/privacy" className="underline">Privacy Policy</NavLink>.
+            </label>
+            
             <label
               htmlFor="signup_submit"
               className={isError ? "no-msg" : "yes-msg"}
