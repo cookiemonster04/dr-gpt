@@ -27,7 +27,7 @@ const Item = ({ name, type, formValue, setFormValue, placeholder }) => {
 
 const Login = ({ user, setUser }) => {
   if (user) {
-    return <Navigate to="/chat" />;
+    return <Navigate to="/start" />;
   }
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -62,7 +62,7 @@ const Login = ({ user, setUser }) => {
   };
   return (
     <div class="min-h-screen">
-      {submitted && <Navigate to="/chat" />}
+      {submitted && <Navigate to="/start" />}
       <div className="loginFrm">
         <form className="form" onSubmit={handleSubmit}>
           <div className="title-container">
