@@ -130,7 +130,7 @@ export default function ChatComp(props) {
           createAppointment={createAppointment}
         /> 
 
-        <div class="md:w-3/4 md:left-1/2 lg:left-1/4 sm:w-100dvh lg:py-3 md:py-3 sm:py-3 fixed bottom-0 w-full">
+        <div class="z-10 md:w-3/4 md:left-1/2 lg:left-1/4 sm:w-100dvh lg:py-0 md:py-0 sm:py-0 fixed bottom-0 w-full">
           <div className="flex">
 
           {!chatId && (
@@ -156,7 +156,7 @@ export default function ChatComp(props) {
           </div>
         </div>
         
-        <div className="relative">
+        <div className="z-0 relative">
           <div className="fixed top-20 md:left-1/2 lg:left-1/4 h-5/6 md:w-3/4 sm:w-100dvh flex-grow
             overflow-auto">
             <div className="px-2">
