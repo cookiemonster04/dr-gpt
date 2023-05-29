@@ -306,7 +306,7 @@ const Homepage = () => {
             width: '50%',
           }}
         >
-          <h1 className="w-full text-black dark:text-white bold" style={{ marginLeft: '1.2rem', marginTop: '0rem', fontSize: '1.9rem', fontFamily:  "system-ui, 'Nunito', 'Source Sans Pro', sans-serif" , textShadow: '0.12rem 0.12rem 0.18rem rgba(0, 0, 0, 0.5)'}}>
+          <h1 className="w-full text-black dark:text-white bold" style={{ marginLeft: '1.2rem', marginTop: '3rem', fontSize: '1.9rem', fontFamily:  "system-ui, 'Nunito', 'Source Sans Pro', sans-serif" , textShadow: '0.12rem 0.12rem 0.18rem rgba(0, 0, 0, 0.5)'}}>
           No more waiting, no more inconvenient appointments. <br />
           Get advice instantly from Vitawise, our medical diagnosis AI 
           </h1>
