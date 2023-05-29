@@ -4,7 +4,10 @@ import "./TermsOfService.css";
 const TermsOfService = () => {
     return (
         <>
-            <div className="mt-20 pt-10 pb-10 w-4/5 mx-auto dark:text-white">
+            <div className="mt-20 pt-10 w-4/5 mx-auto dark:text-white">
+                <h1>Terms of service and Privacy Notice:</h1>
+            </div>
+            <div className="mt-10 pt-10 pb-10 w-4/5 mx-auto dark:text-white">
                 <h1>TERMS OF SERVICE</h1>
                 
                 <p className="italic">Last updated May 13, 2023</p>

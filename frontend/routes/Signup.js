@@ -134,7 +134,7 @@ const Signup = ({ user, setUser, themeMode }) => {
                 for="checked-checkbox"
                 class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
-                I have read and agree to Vitawise's <NavLink to="/terms" className="underline">Terms of Service</NavLink> and <NavLink to="/privacy" className="underline">Privacy Policy</NavLink>.
+                I have read and agree to Vitawise's <NavLink to="/terms" className="underline">Terms of Service and Privacy Policy</NavLink>.
               </label>
             </div>
             
