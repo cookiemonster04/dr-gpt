@@ -39,11 +39,11 @@ function Sidebar({
   console.log("chatPreviews", chatPreviews);
   return (
     <div id="Sidebar">
-      <div class="fixed left-0 top-20 z-40 w-128 h-screen transition-transform -translate-x-full md:translate-x-0" aria-label="Sidenav">
-        <div class="overflow-y-auto py-5 px-3 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-          <ul class="space-y-2">
+      <div className="fixed left-0 top-20 z-40 w-128 h-screen transition-transform -translate-x-full md:translate-x-0" aria-label="Sidenav">
+        <div className="overflow-y-auto py-5 px-3 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+          <ul className="space-y-2">
             <li>
-              <button variant="contained" onClick={createAppointment} class="text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
+              <button variant="contained" onClick={createAppointment} className="text-gray-800 dark:text-white inline-flex items-center bg-primary-700 dark:bg-blue-700 hover:bg-blue-200 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-blue-100">
                 New Appointment
               </button>
             </li>
@@ -56,8 +56,8 @@ function Sidebar({
                     preview.chatId === curChatId ? lightBlue[100] : null,
                 }}
               >
-                <div onClick={() => switchChat(preview.chatId)} class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                  <span class="ml-3">Appointment on {preview.creationTime}</span>
+                <div onClick={() => switchChat(preview.chatId)} className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                  <span className="ml-3">Appointment on {preview.creationTime}</span>
                 </div>
               </li>
             ))}
@@ -120,7 +120,7 @@ export default function ChatComp(props) {
     mapLoaded &&
     gptStatus && (
 
-      <div class="flex min-h-screen bg-blue-100 dark:bg-gray-700"> 
+      <div className="flex min-h-screen bg-blue-100 dark:bg-gray-700"> 
         
         <Sidebar
           map={map}
@@ -130,17 +130,17 @@ export default function ChatComp(props) {
           createAppointment={createAppointment}
         /> 
 
-        <div class="z-10 md:w-3/4 md:left-1/2 lg:left-1/4 sm:w-100dvh lg:py-0 md:py-0 sm:py-0 fixed bottom-0 w-full">
+        <div className="z-10 md:w-3/4 md:left-1/2 lg:left-1/4 sm:w-100dvh lg:py-0 md:py-0 sm:py-0 fixed bottom-0 w-full">
           <div className="flex">
 
           {!chatId && (
-            <button variant="contained" onClick={createAppointment} class="w-full md:hidden text-gray-800 dark:text-white inline-flex items-center bg-blue-400 dark:bg-blue-700 hover:bg-blue-400 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-800">
+            <button variant="contained" onClick={createAppointment} className="w-full md:hidden text-gray-800 dark:text-white inline-flex items-center bg-blue-400 dark:bg-blue-700 hover:bg-blue-400 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-800">
               new appointment
             </button>
           )}
           {chatId && ( 
             <>
-              <button variant="contained" onClick={createAppointment} class="md:hidden text-gray-800 dark:text-white inline-flex items-center bg-blue-400 dark:bg-blue-700 hover:bg-blue-400 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-800">
+              <button variant="contained" onClick={createAppointment} className="md:hidden text-gray-800 dark:text-white inline-flex items-center bg-blue-400 dark:bg-blue-700 hover:bg-blue-400 dark:hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-800">
               new
               </button>
               <MessageInput

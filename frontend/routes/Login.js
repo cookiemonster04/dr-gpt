@@ -61,12 +61,12 @@ const Login = ({ user, setUser }) => {
       );
   };
   return (
-    <div class="min-h-screen">
+    <div className="min-h-screen">
       {submitted && <Navigate to="/start" />}
       <div className="loginFrm">
         <form className="form" onSubmit={handleSubmit}>
           <div className="title-container">
-            <h1 className="title" style={{ color: "#333" }} class="mb-4">Log in</h1>
+            <h1 className="title mb-4" style={{ color: "#333" }}>Log in</h1>
             <FontAwesomeIcon icon={faUserPlus} size="lg" style={{ color: "#333" }}/>
           </div>
           <Item
