@@ -232,7 +232,7 @@ const Homepage = () => {
 
             <EmptyBoxWithButton />
 
-            <Carousel showArrows autoPlay infiniteLoop interval={5000}>
+            <Carousel showArrows autoPlay infiniteLoop interval={5000} showThumbs={false}>
               {slides.map((slide, index) => (
                 <Box
                   key={index}
