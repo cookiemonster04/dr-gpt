@@ -59,7 +59,7 @@ function App() {
                   handleTheme={toggleTheme}
                   user={user}
                 />
-                <div className="container">
+                <div className="flex grow shrink justify-center">
                   <Home user={user} />
                 </div>
               </>
