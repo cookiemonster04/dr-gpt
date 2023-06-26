@@ -50,7 +50,7 @@ const init_io = (server) => {
   io = require("socket.io")(server, {
       // origins: [`http://localhost:${process.env.PORT}`, "https://vitawise.org:*"],
       cors: {
-        origin: process.env.NODE_ENV === "production" ? false : [`http://localhost:${process.env.PORT}`],
+        origin: process.env.NODE_ENV === "production" ? false : [`https://localhost:${process.env.PORT}`],
       }
   });
   io.on("connection", (socket) => {

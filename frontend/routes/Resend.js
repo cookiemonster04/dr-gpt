@@ -62,7 +62,7 @@ const Signup = ({ user, setUser, themeMode }) => {
     // }
   };
   return (
-    <div class="min-h-screen">
+    <div className="min-h-screen">
       {/* {submitted && <Navigate to="/profile" />} */}
       <ThemeProvider theme={theme}>
         {submitted && (
@@ -73,7 +73,7 @@ const Signup = ({ user, setUser, themeMode }) => {
         <div className="signupFrm">
           <form className="form" onSubmit={handleSubmit}>
             <div className="title-container">
-              <h1 className="title" style={{ color: "#333" }} class="mb-4">
+              <h1 className="title  mb-4" style={{ color: "#333" }}>
                 Resend Verification
               </h1>
               <FontAwesomeIcon

@@ -82,13 +82,13 @@ const Signup = ({ user, setUser, themeMode }) => {
     // }
   };
   return (
-    <div class="min-h-screen">
+    <div className="min-h-screen">
       {/* {submitted && <Navigate to="/profile" />} */}
       <ThemeProvider theme={theme}>
         <div className="signupFrm">
           <form className="form" onSubmit={handleSubmit}>
             <div className="title-container">
-              <h1 className="title" style={{ color: "#333" }} class="mb-4">
+              <h1 className="title mb-4" style={{ color: "#333" }}>
                 Sign up
               </h1>
               <FontAwesomeIcon
@@ -121,20 +121,20 @@ const Signup = ({ user, setUser, themeMode }) => {
             {/* <input type="checkbox" className="mr-2">
             </input> */}
 
-            <div class="flex items-center">
+            <div className="flex items-center">
               <input
                 checked={agreed}
                 id="checked-checkbox"
                 type="checkbox"
                 value=""
-                // class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                // className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 onChange={() => setAgreed(!agreed)}
               ></input>
               <label
                 for="checked-checkbox"
-                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
-                I have read and agree to Vitawise's <NavLink to="/terms" className="underline">Terms of Service</NavLink> and <NavLink to="/privacy" className="underline">Privacy Policy</NavLink>.
+                I have read and agree to Vitawise's <NavLink to="/terms" className="underline">Terms of Service and Privacy Policy</NavLink>.
               </label>
             </div>
             
